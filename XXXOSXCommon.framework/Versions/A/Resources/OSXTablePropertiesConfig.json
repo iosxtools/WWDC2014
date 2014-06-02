@@ -1,0 +1,28 @@
+{"XXXTableView":{
+     "XXXTableViewControllerBaseClass":["XXXTableViewController"],
+      "XXXTableViewDelegateBaseClass":["XXXTableViewDelegate"],
+      "XXXTableViewColumnHeaderAlignmentType":["NSLeftTextAlignment",                 "NSRightTextAlignment",
+           "NSCenterTextAlignment"
+          ],
+      "XXXTableViewColumnCellType":
+       ["Label",
+        "TextField",
+        "ComboBox",
+        "CheckBox",
+        "RadioBox",
+        "PopUpButton",
+        "ImageView"
+        ],
+        "XXXTableViewColumnCellCodeMakerType":
+        ["DBCellTypeLabel",
+         "DBCellTypeTextField",
+         "DBCellTypeComboBox",
+         "DBCellTypeCheckBox",
+         "DBCellTypeRadioBox",
+         "DBCellTypePopUpButton",
+         "DBCellTypeImageView"
+       ]
+    }
+}
+
+

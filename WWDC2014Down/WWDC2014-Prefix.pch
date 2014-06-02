@@ -1,0 +1,24 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+
+
+#import <XXXOSXVendorFoundation/XXXOSXVendorFoundation.h>
+#import <XXXOSXVendorUI/XXXOSXVendorUI.h>
+#import <XXXOSXFoundation/XXXOSXFoundation.h>
+#import <XXXOSXCommon/XXXOSXCommon.h>
+#import <XXXOSXUI/XXXOSXUI.h>
+
+
+
+
+
+//common header files
+#import "AppCommon.h"
+#import "OCGumbo+Query.h"
+#endif
