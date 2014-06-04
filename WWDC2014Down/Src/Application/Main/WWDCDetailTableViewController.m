@@ -30,12 +30,24 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self tableViewDelegateConfig];
+    [self registerDownloadURLParserFinishedNotification];
     [self registerCategoryTrackNotification];
     [self registerSearchTextChangedNotifaction];
     [self fetchAllData];
 }
 
 
+
+
+
+- (void)registerDownloadURLParserFinishedNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvDownloadURLParserFinishedNotification:) name:kDownloadURLParserFinishedNotification object:nil];
+}
+- (void)recvDownloadURLParserFinishedNotification:(NSNotification*)notification
+{
+    [self fetchAllData];
+}
 
 - (void)registerCategoryTrackNotification
 {
@@ -48,6 +60,10 @@
     {
         self.trackName = trackName;
         [self fetchTrackData];
+    }
+    else
+    {
+        [self fetchAllData];
     }
     
 }
@@ -110,6 +126,11 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
          NSArray * items = [[WWDCBO sharedInstance] wwdcAllVedioItems];
+        if(items.count<=0)
+        {
+            [self hideActivityView];
+            return ;
+        }
                [self.dataDelegate setData:items];
         dispatch_async(dispatch_get_main_queue(),^
                        {

@@ -58,6 +58,7 @@
 		715C3D351937D997007D1093 /* checkmark_on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 715C3D331937D997007D1093 /* checkmark_on.tiff */; };
 		715C3D3E1937E4AB007D1093 /* WWDCDownloadTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 715C3D3D1937E4AB007D1093 /* WWDCDownloadTransformer.m */; };
 		715D7A98193BDFC800B699B7 /* AppWWDC2014.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 715D7A97193BDFC800B699B7 /* AppWWDC2014.sqlite */; };
+		7184F3CA193E81230055E3FC /* wwdc2014.html in Resources */ = {isa = PBXBuildFile; fileRef = 7184F3C9193E81230055E3FC /* wwdc2014.html */; };
 		719609C319366E9B00D6D82F /* WWDCCategoryTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 719609C219366E9B00D6D82F /* WWDCCategoryTransformer.m */; };
 		71A37AF919352941008AA1D6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A37AF819352941008AA1D6 /* Cocoa.framework */; };
 		71A37B0319352941008AA1D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A37B0119352941008AA1D6 /* InfoPlist.strings */; };
@@ -238,6 +239,7 @@
 		715C3D3C1937E4AB007D1093 /* WWDCDownloadTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWDCDownloadTransformer.h; sourceTree = "<group>"; };
 		715C3D3D1937E4AB007D1093 /* WWDCDownloadTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDCDownloadTransformer.m; sourceTree = "<group>"; };
 		715D7A97193BDFC800B699B7 /* AppWWDC2014.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppWWDC2014.sqlite; sourceTree = "<group>"; };
+		7184F3C9193E81230055E3FC /* wwdc2014.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wwdc2014.html; sourceTree = "<group>"; };
 		719609C119366E9B00D6D82F /* WWDCCategoryTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWDCCategoryTransformer.h; sourceTree = "<group>"; };
 		719609C219366E9B00D6D82F /* WWDCCategoryTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDCCategoryTransformer.m; sourceTree = "<group>"; };
 		71A37AF519352941008AA1D6 /* WWDC2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2014.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -659,6 +661,7 @@
 		71A37B5119352A41008AA1D6 /* String */ = {
 			isa = PBXGroup;
 			children = (
+				7184F3C9193E81230055E3FC /* wwdc2014.html */,
 				71A37D0A19353A6E008AA1D6 /* wwdc.html */,
 				71A37B5219352A41008AA1D6 /* magicData.strings */,
 				71A37B5319352A41008AA1D6 /* project.strings */,
@@ -1082,6 +1085,7 @@
 				71A37C1719352A42008AA1D6 /* SinaWeiboLOGO_32x32.png in Resources */,
 				71A37C0E19352A42008AA1D6 /* attachImage@2x.jpg in Resources */,
 				712B10BD19390F6800D9D4FE /* AppStoreViewController.xib in Resources */,
+				7184F3CA193E81230055E3FC /* wwdc2014.html in Resources */,
 				711FDE05193678DA00B94802 /* WWDCDetailTableViewController.xib in Resources */,
 				715C3D031937802D007D1093 /* wwdcIcon29x29.png in Resources */,
 				71A37C0D19352A42008AA1D6 /* attachImage.jpg in Resources */,

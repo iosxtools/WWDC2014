@@ -43,7 +43,8 @@
         //NSString *webContent = [[NSString alloc] initWithContentsOfURL:url usedEncoding:NULL error:NULL];
         
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc" ofType:@"html"];
+        
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
         
         NSString *webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
         
@@ -84,7 +85,7 @@
             
             NSInteger downloadHREfNodeCount = [downloadHREFNodes count];
             
-            if(downloadHREfNodeCount<=2)
+            if(downloadHREfNodeCount<=1)
             {
                 continue;
             }
@@ -117,7 +118,7 @@
             wwdc.hdLink = hdLink;
             wwdc.sdLink = sdLink;
             wwdc.pdfLink = pdfLink;
-            wwdc.wwdcYear =@"2013";
+            wwdc.wwdcYear =@"2014";
             wwdc.desc = @"";
             
             [wwdc save];
@@ -133,18 +134,29 @@
             //download link save
             WWDCDownload *download = [[WWDCDownload alloc]init];
             
-            download.wwdcID = ID;
-            download.type = WWDCVedioHDType;
-            download.ID = downID++;
-            [download save];
+            if(hdLink)
+            {
+                download.wwdcID = ID;
+                download.type = WWDCVedioHDType;
+                download.ID = downID++;
+                [download save];
+            }
+           
             
-            download.type = WWDCVedioSDType;
-            download.ID = downID++;
-            [download save];
+            if(sdLink)
+            {
+                download.type = WWDCVedioSDType;
+                download.ID = downID++;
+                [download save];
+            }
             
-            download.type = WWDCVedioPDFType;
-            download.ID = downID++;
-            [download save];
+            
+            if(pdfLink)
+            {
+                download.type = WWDCVedioPDFType;
+                download.ID = downID++;
+                [download save];
+            }
 
             
              ID++;

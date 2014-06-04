@@ -49,8 +49,9 @@
     
     NSString *urlString = downloadItem[@"url"];
     
+    NSString *encodedText = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
-    NSURL *url = [NSURL URLWithString:urlString];
+    NSURL *url = [NSURL URLWithString:encodedText];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     NSString *targetPath = [AppPreference sharedPreference].downLoadPath;

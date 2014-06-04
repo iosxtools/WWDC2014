@@ -48,6 +48,10 @@
 - (void)fetchData
 {
     NSArray *tracks = [self.dao findAll];
+    if(tracks.count<=0)
+    {
+        return;
+    }
     [self.dataDelegate setData:tracks];
     [self.tableView reloadData];
 }

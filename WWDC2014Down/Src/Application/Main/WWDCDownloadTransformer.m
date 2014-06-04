@@ -28,7 +28,12 @@ static NSArray * tableItemNodeFromModelObject(NSArray *models) {
         NSInteger WWDCID = download.wwdcID;
         WWDC *wwdc= [[WWDCBO sharedInstance]wwdcWithID:WWDCID];
         nodeMap[@"fileID"] = @(download.ID);
-        nodeMap[@"url"] = [wwdc urlWithType:download.type];
+        NSString *url = [wwdc urlWithType:download.type];
+        if(url.length<=1)
+        {
+            continue;
+        }
+        nodeMap[@"url"] = url;
         nodeMap[@"isSelected"]=@(1);
         nodeMap[@"percent"]=[NSNumber numberWithDouble:0];
         nodeMap[@"title"]=wwdc.title;

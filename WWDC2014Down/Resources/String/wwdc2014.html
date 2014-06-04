@@ -1,0 +1,737 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="Author" content="Apple Inc." />
+        <meta name="viewport" content="width=1024" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/core/styles/base.css" type="text/css" />
+        <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/core/styles/adc.css" type="text/css" />
+        <link rel="stylesheet" href="/assets/core/styles/templates.css" type="text/css" />
+        <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/styles/topbar.css" type="text/css" />
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/lib/prototype.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/lib/scriptaculous.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/browserdetect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/apple_core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/search_decorator.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/adc_core.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/scripts/ac_retina.js" type="text/javascript" charset="utf-8"></script>
+        <script src="https://devimages.apple.com.edgekey.net/assets/scripts/topbarDropdown.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            document.write('<link rel="stylesheet" type="text/css" href="https://devimages.apple.com.edgekey.net/assets/styles/script.css" media="screen">');
+            </script>
+        <!-- Augmented Search -->
+        <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/styles/augmented_search.css" type="text/css">
+            <script src="https://devimages.apple.com.edgekey.net/assets/scripts/lib/jquery/jquery-1.11.0.min.js"></script>
+            <script>jQuery.noConflict();</script>
+            <script src="https://devimages.apple.com.edgekey.net/assets/scripts/augmented_search.js"></script>		<!-- Override viewport width to support responsive layout `-->
+            <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+            <link rel="stylesheet" href="/wwdc/styles/wwdc.css" type="text/css" />
+            <!--<script src="/wwdc/scripts/parallax.js"></script>-->
+            <!-- <script src="/wwdc/scripts/mobile-navigation.js"></script> -->	<title>WWDC 2014 Session Videos - Apple Developer</title>
+            <meta name="omni_page" content="WWDC 2013 Session Videos" />
+            <meta name="Description" content="Learn about the latest in iOS and OS X with WWDC 2014 session videos.">
+                
+                <script type="text/javascript" charset="utf-8" src="https://devimages.apple.com.edgekey.net/assets/scripts/lib/jquery/jquery.tinysort.min.js"></script>
+                <script type="text/javascript" charset="utf-8" src="https://devimages.apple.com.edgekey.net/assets/scripts/lib/jquery/jquery.tinysort.charorder.min.js"></script>
+                <link rel="stylesheet" href="/videos/wwdc/2014/styles/videos.css" type="text/css" />
+                
+                <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/lib/event_mixins.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/swap_view.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/view_master_tracker.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://devimages.apple.com.edgekey.net/assets/core/scripts/ac_autogallery.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://devimages.apple.com.edgekey.net/wwdc/scripts/ac_media.js" type="text/javascript" charset="utf-8"></script>
+                <script src="https://devimages.apple.com.edgekey.net/wwdc/scripts/detect-device-lion.js" type="text/javascript" charset="utf-8"></script>
+                <link rel="stylesheet" href="https://devimages.apple.com.edgekey.net/assets/core/ac_media_player/styles/ac_media.css" type="text/css" />
+                
+                <script type="text/javascript" charset="utf-8" src="/videos/scripts/videos.js"></script>
+    </head>
+    <body id="videos" class="videos now-playing">
+        <div style="width:100%;">
+            <div id="wwdc-header">
+                <h1 data-hires="true" href="/wwdc/"><a href="/wwdc/">Apple WWDC 2014</a></h1>
+                <ul>
+                    <li id="wwdc-news"><a href="/wwdc/news/">News</a></li>
+                    <li id="wwdc-schedule"><a href="/wwdc/schedule/">Schedule</a></li>
+                    <li id="wwdc-tracks"><a href="/wwdc/sessions/">Sessions</a></li>
+                    <li id="wwdc-labs"><a href="/wwdc/labs/">Labs</a></li>
+                    <li id="wwdc-events"><a href="/wwdc/events/">Events</a></li>
+                    <li id="wwdc-videos"><a href="/videos/wwdc/2014/">Videos</a></li>
+                    <li id="wwdc-tickets"><a href="/wwdc/resources/">Resources</a></li>
+                    <li id="wwdc-more"><a href="/wwdc/more/">More</a></li>
+                </ul>
+            </div>
+            <script>
+                (function(window, $, undefined) {
+                 jQuery(document).ready(function(){
+                                        /*
+                                         var header = $('#wwdc-header');
+                                         $(window).on('scroll', function(e) {
+                                         header.css('top', $('body').scrollTop());
+                                         });
+                                         */
+                                        if(!window.location.toString().match(/\/wwdc\/$/)) {
+                                        $('#wwdc-header li').each(function(i, elem) {
+                                                                  var href = $(elem).children().get(0).href;
+                                                                  if(window.location.toString().indexOf(href) > -1) {
+                                                                  $(elem).addClass('active');
+                                                                  return false;
+                                                                  }
+                                                                  });
+                                        }
+                                        });
+                 })(window, jQuery);
+                </script>
+        </div>	<div id="top">
+            <!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+            <script type="text/javascript">
+                /* RSID: */
+                var s_account="appleglobal,appleusdeveloper"
+                </script>
+            
+            <script type="text/javascript" src="https://www.apple.com/metrics/scripts/s_code_h.js"></script>
+            <script type="text/javascript">
+                s.pageName=AC.Tracking.pageName();
+                s.channel="www.us.developer"
+                
+                /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+                var s_code=s.t();if(s_code)document.write(s_code)</script>
+            <!-- End SiteCatalyst code version: H.8. -->
+        </div>
+        <div id="content" class="content" data-hires="true">
+            <header class="hero dark">
+                <div class="topbar">
+					<div class="topbar-select-container">
+                        <a class="topbar-select portal-select" id="topbar-select" target="_self">
+                            <span class="section-title">ZHANG HAIYAN</span>
+                        </a>
+                        <div class="tooltip top-pointer two-items" id="topbar-dropdown-tooltip" style="display:none">
+                            <div class="top edge"></div>
+                            <div class="tooltip-content">
+                                <div class="content-wrapper">
+                                    <ul class="topbar-dropdown-options">
+                                        <li class="profile"><a href="/membercenter/index.action#accountSummary" class="first-option" target="_self">Your Account</a></li>
+                                        <li class="sign-out"><a href="/logout/?return=%2Fvideos%2Fwwdc%2F2014%2F" class="last-option" target="_self">Sign Out</a></li>
+                                    </ul><!--/topbar-dropdown-options-->
+                                </div><!--/content-wrapper-->
+                            </div><!--/tooltip-content-->
+                        </div><!--/top edge-->
+                    </div><!--/tooltip-->
+                    
+                </div>
+                <h1>WWDC 2014 Session Videos</h1>
+            </header>
+            
+            <div id="video-view" class="gallery-view">
+                <div class="video-view" id="close"></div>
+            </div>
+            
+            <section class="video-list col3">
+                <header>
+                    <ul>
+                        <li class="title desc">Description<span class="order arrow-down"></span></li><li class="track">Track<span class="order arrow-down"></span></li><li class="platform">Platform<span class="order arrow-down"></span></li>
+                    </ul>
+                </header>
+                <section>
+                    <ul>
+                        <li class="session" id="419-video">
+							<ul>
+								<li class="title">Advanced Graphics and Animations for iOS Apps</li><li class="track">Tools</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-419" href="/videos/wwdc/2014/?include=419#419" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Advanced Graphics and Animations for iOS Apps</li><li class="thumbnail-id">Session 419</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Creating a responsive UI requires an understanding of Core Animation and how mobile GPUs work. Learn about the iOS rendering pipeline in Core Animation, the new UIVisualEffectView and how it utilizes the GPU. Find out about the available tools for profiling UI performance. See how to identify and fix performance issues on a variety of devices.</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="101-video">
+							<ul>
+								<li class="title">Keynote</li><li class="track">Special Events</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-101" href="/videos/wwdc/2014/?include=101#101" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Keynote</li><li class="thumbnail-id">Session 101</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>WWDC 2014 Keynote</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/101xx36lr6smzjo/101/101_hd.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/101xx36lr6smzjo/101/101_sd.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="704-video">
+							<ul>
+								<li class="title">Building Apps for Enterprise and Education</li><li class="track">Core OS</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-704" href="/videos/wwdc/2014/?include=704#704" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Building Apps for Enterprise and Education</li><li class="thumbnail-id">Session 704</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Learn about data security, enterprise authentication, integration with back-end systems, app configuration methods, and the latest technologies for interacting with documents, accessories, and more. Get helpful tips for constructing your apps to meet the needs of schools and educators, as well as key requirement from IT. Perfect for everyone looking to get their apps in the hands of business professionals, educators, and students worldwide.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/704xx7dmqd5m9l4/704/704_hd_building_apps_for_enterprise_and_education.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/704xx7dmqd5m9l4/704/704_sd_building_apps_for_enterprise_and_education.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="702-video">
+							<ul>
+								<li class="title">Managing Apple Devices</li><li class="track">Core OS</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-702" href="/videos/wwdc/2014/?include=702#702" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Managing Apple Devices</li><li class="thumbnail-id">Session 702</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Learn about the latest developments in managing Apple devices in an enterprise environment. Learn how MDM can be used to wirelessly configure settings, monitor compliance with policies, install apps, and remotely wipe devices, and how these capabilities can be integrated with in-house or third-party server solutions.</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="209-video">
+							<ul>
+								<li class="title">Adapting Your App to the New UI of OS X Yosemite</li><li class="track">Frameworks</li><li class="platform">OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-209" href="/videos/wwdc/2014/?include=209#209" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Adapting Your App to the New UI of OS X Yosemite</li><li class="thumbnail-id">Session 209</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Take a tour of the new appearances and behaviors that Cocoa supports and learn how easy it is to adopt them when you use standard Cocoa classes. Get an overview of the changes to Cocoa and find out how to make your app fit in and feel familiar to people using OS X Yosemite.</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="412-video">
+							<ul>
+								<li class="title">Localizing with Xcode 6</li><li class="track">Tools</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-412" href="/videos/wwdc/2014/?include=412#412" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Localizing with Xcode 6</li><li class="thumbnail-id">Session 412</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Your app deserves a global audience, and iOS, OS X, and Xcode 6 make it easy to design and test applications in multiple languages. Discover how you can easily add and manage localized content, preview and test with different languages, and export and import content for localizers to translate.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/412xx80au1lrfcn/412/412_hd_localizing_with_xcode_6.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/412xx80au1lrfcn/412/412_sd_localizing_with_xcode_6.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="401-video">
+							<ul>
+								<li class="title">What's New in Xcode 6</li><li class="track">Tools</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-401" href="/videos/wwdc/2014/?include=401#401" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">What's New in Xcode 6</li><li class="thumbnail-id">Session 401</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Xcode is the development environment for creating amazing apps for iOS and OS X. Start the week by watching the Xcode team demonstrate the latest features and workflows in Xcode 6. This session also provides a complete overview of the in-depth developer tools topics covered at WWDC 2014.</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="402-video">
+							<ul>
+								<li class="title">Introduction to Swift</li><li class="track">Tools</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-402" href="/videos/wwdc/2014/?include=402#402" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Introduction to Swift</li><li class="thumbnail-id">Session 402</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Swift is Apple's brand-new programming language for writing great iOS and OS X apps. Learn the basics of the language. See how to declare variables, use the fundamental data types, declare functions, and implement classes. Explore some of the great features that make Swift a safe, modern, and extremely powerful language.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/402xxgg8o88ulsr/402/402_hd_introduction_to_swift.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/402xxgg8o88ulsr/402/402_sd_introduction_to_swift.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="208-video">
+							<ul>
+								<li class="title">Introducing CloudKit</li><li class="track">Frameworks</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-208" href="/videos/wwdc/2014/?include=208#208" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Introducing CloudKit</li><li class="thumbnail-id">Session 208</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>CloudKit is the framework that powers iCloud on iOS and OS X, now available directly in your app. Learn how you can take advantage of its feature-rich API to store and query your own custom data and assets in iCloud.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/208xx42tf0hw3vv/208/208_hd_introducing_cloudkit.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/208xx42tf0hw3vv/208/208_sd_introducing_cloudkit.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="206-video">
+							<ul>
+								<li class="title">Introducing the Modern WebKit API</li><li class="track">Frameworks</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-206" href="/videos/wwdc/2014/?include=206#206" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Introducing the Modern WebKit API</li><li class="thumbnail-id">Session 206</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>The modern WebKit framework enables developers to integrate web content into their native app experience with more features and fewer lines of code. Dive into the latest WebKit enhancements including modern Objective-C features such as blocks and explicit object types, advanced bridging between JavaScript and Objective-C, increased JavaScript performance via WebKit's super-fast JIT, and more—all delivered in an API unified for both iOS and OS X.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/206xxdiurnffagr/206/206_hd_introducing_the_modern_webkit_api.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/206xxdiurnffagr/206/206_sd_introducing_the_modern_webkit_api.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="707-video">
+							<ul>
+								<li class="title">What's New in Foundation Networking</li><li class="track">Core OS</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-707" href="/videos/wwdc/2014/?include=707#707" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">What's New in Foundation Networking</li><li class="thumbnail-id">Session 707</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>The NSURLSession class provides powerful HTTP networking features in iOS and OS X. Learn about new NSURLSession capabilities and hear expert advice on practical, efficient and high performance networking for your apps.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/707xx1o5tdjnvg9/707/707_hd_what’s_new_in_foundation_networking.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/707xx1o5tdjnvg9/707/707_sd_what’s_new_in_foundation_networking.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="706-video">
+							<ul>
+								<li class="title">What's New in Core Location</li><li class="track">Core OS</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-706" href="/videos/wwdc/2014/?include=706#706" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">What's New in Core Location</li><li class="thumbnail-id">Session 706</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Find out how your app can use new functionality in Core Location to do automatic check-in or journal the user's location. Learn how location authorization is changing to give the user more precise control of what location services an App is authorized is use, and what this means for developers and users.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/706xxjytntg51wd/706/706_hd_whats_new_in_core_location.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/706xxjytntg51wd/706/706_sd_whats_new_in_core_location.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="211-video">
+							<ul>
+								<li class="title">Designing Intuitive User Experiences</li><li class="track">Frameworks</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-211" href="/videos/wwdc/2014/?include=211#211" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Designing Intuitive User Experiences</li><li class="thumbnail-id">Session 211</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Learn about the key concepts and principles that will enable you to make your app intuitive and approachable. Gain insights into how you can harness UI animations to help people stay oriented, get clear and meaningful feedback, and navigate with ease.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/211xxmyz80g30i9/211/211_hd_designing_intuitive_user_experiences.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/211xxmyz80g30i9/211/211_sd_designing_intuitive_user_experiences.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="210-video">
+							<ul>
+								<li class="title">Accessibility on iOS</li><li class="track">Frameworks</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-210" href="/videos/wwdc/2014/?include=210#210" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Accessibility on iOS</li><li class="thumbnail-id">Session 210</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>iOS offers unmatched accessibility support that can help you reach a wider audience. Join us for an exploration of the features that iOS offers for users with specific needs, in areas such as vision, hearing, movement, and learning. Learn how to leverage existing and new UIAccessibility APIs in iOS 8, including expanded support for low vision users, to ensure that your app's features are available to all users.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/210xxksa9s9ewsa/210/210_hd_accessibility_on_ios.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/210xxksa9s9ewsa/210/210_sd_accessibility_on_ios.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="207-video">
+							<ul>
+								<li class="title">Accessibility on OS X</li><li class="track">Frameworks</li><li class="platform">OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-207" href="/videos/wwdc/2014/?include=207#207" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Accessibility on OS X</li><li class="thumbnail-id">Session 207</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>OS X is known for its unsurpassed level of accessibility. Find out about an all-new OS X accessibility API to make adding accessibility support to your apps even easier. Discover how to add support for VoiceOver, Switch Control, automation and other assistive-technology clients to work with your OS X applications. Learn advanced techniques to make complex controls accessible with only a few lines of code.</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="202-video">
+							<ul>
+								<li class="title">What's New in Cocoa Touch</li><li class="track">Frameworks</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-202" href="/videos/wwdc/2014/?include=202#202" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">What's New in Cocoa Touch</li><li class="thumbnail-id">Session 202</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>iOS 8 brings enhancements to the Cocoa Touch frameworks for making next generation apps on iOS. Learn about updates to view controllers, the introduction of size classes, and get an overview of all new APIs to help you create adaptive apps. Hear about new capabilities, such as extensions and handoff, which will enable you to create great experiences for users to keep them up to date at all times or allow them to continue their workflow when they move from one device to another. Find out which sessions you won't want to miss throughout the week.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/202xx3ane09vxdz/202/202_hd_whats_new_in_cocoa_touch.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/202xx3ane09vxdz/202/202_sd_whats_new_in_cocoa_touch.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="205-video">
+							<ul>
+								<li class="title">Creating Extensions for iOS and OS X, Part 1</li><li class="track">Frameworks</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-205" href="/videos/wwdc/2014/?include=205#205" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Creating Extensions for iOS and OS X, Part 1</li><li class="thumbnail-id">Session 205</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Extensions enable you to keep people engaged with your content across iOS and OS X. Learn how to create extensions that share content with social websites, engage users in Notification Center, and enable a variety of other exciting features. Tap into the potential of extensions and prepare to dive into advanced topics in Part 2.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/205xxqzduadzo14/205/205_hd_creating_extensions_for_ios_and_os_x,_part_1.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/205xxqzduadzo14/205/205_sd_creating_extensions_for_ios_and_os_x,_part_1.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="201-video">
+							<ul>
+								<li class="title">Advanced Topics in Internationalization</li><li class="track">Frameworks</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-201" href="/videos/wwdc/2014/?include=201#201" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Advanced Topics in Internationalization</li><li class="thumbnail-id">Session 201</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Making your app appealing to customers around the world requires more than basic localization. See how to tackle the complex aspects of making your app truly world-ready. Learn about the latest developments with internationalization on iOS and OS X, and learn from case studies illustrating common pitfalls to avoid and simple and effective techniques. Find out how to give your users a great experience no matter what language they speak or where they live.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/201xx2xfazhzce8/201/201_hd_advanced_topics_in_internationalization.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/201xx2xfazhzce8/201/201_sd_advanced_topics_in_internationalization.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="502-video">
+							<ul>
+								<li class="title">AVAudioEngine in Practice</li><li class="track">Media</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-502" href="/videos/wwdc/2014/?include=502#502" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">AVAudioEngine in Practice</li><li class="thumbnail-id">Session 502</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Dive deeper into the new Objective-C based audio graph system in AV Foundation. Learn how apps can utilize rich audio services from simple audio playback tasks to complex audio rendering chains, including effects and 3D spatial rendering for games.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/502xxvo7vov799k/502/502_hd_avaudioengine_in_practice.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/502xxvo7vov799k/502/502_sd_avaudioengine_in_practice.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="501-video">
+							<ul>
+								<li class="title">What's New in Core Audio</li><li class="track">Media</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-501" href="/videos/wwdc/2014/?include=501#501" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">What's New in Core Audio</li><li class="thumbnail-id">Session 501</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>See what's new in Core Audio for iOS and OS X. Be introduced to the powerful new APIs for managing audio buffers, files, and data formats. Learn how to incorporate views to facilitate switching between inter-app audio apps on iOS. Take an in depth look at how to tag Audio Units and utilize MIDI over Bluetooth LE.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/501xxfo4d68h054/501/501_hd_whats_new_in_core_audio.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/501xxfo4d68h054/501/501_sd_whats_new_in_core_audio.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="505-video">
+							<ul>
+								<li class="title">Harnessing Metadata in Audiovisual Media</li><li class="track">Media</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-505" href="/videos/wwdc/2014/?include=505#505" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Harnessing Metadata in Audiovisual Media</li><li class="thumbnail-id">Session 505</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Rich metadata, such as time, date, location, and user defined tags, are particularly useful for time-based media. Discover how to harness static and timed metadata in your AV Foundation apps. See how to write metadata into media and read it during playback. Gain knowledge of best practices for privacy and protecting user data.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/505xx5j7n7h3a1q/505/505_hd_harnessing_metadata_in_audiovisual_media.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/505xx5j7n7h3a1q/505/505_sd_harnessing_metadata_in_audiovisual_media.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="601-video">
+							<ul>
+								<li class="title">Harnessing the Power of the Mac Pro with OpenGL and OpenCL</li><li class="track">Graphics and Games</li><li class="platform">OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-601" href="/videos/wwdc/2014/?include=601#601" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Harnessing the Power of the Mac Pro with OpenGL and OpenCL</li><li class="thumbnail-id">Session 601</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>The new Mac Pro enables you to unleash the power of dual workstation-class GPUs and multiple CPU cores in ways that just weren't possible until now. Gain a deeper understanding of the integration between OpenCL and OpenGL and see how to tap into the parallel compute and rendering power of the Mac.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/601xxu3eg5ttkcj/601/601_hd_harnessing_the_power_of_the_mac_pro_with_opengl_and_opencl.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/601xxu3eg5ttkcj/601/601_sd_harnessing_the_power_of_the_mac_pro_with_opengl_and_opencl.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="203-video">
+							<ul>
+								<li class="title">Introducing HealthKit</li><li class="track">Frameworks</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-203" href="/videos/wwdc/2014/?include=203#203" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Introducing HealthKit</li><li class="thumbnail-id">Session 203</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>HealthKit is a brand new framework that centralizes the data storage of personal health information. Learn from the framework authors how to save, query, and interpret health data to make your apps more engaging and personal for your users.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/203xxh9oqtm0piw/203/203_hd_introducing_healthkit.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/203xxh9oqtm0piw/203/203_sd_introducing_healthkit.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="213-video">
+							<ul>
+								<li class="title">Introducing HomeKit</li><li class="track">Frameworks</li><li class="platform">iOS</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-213" href="/videos/wwdc/2014/?include=213#213" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Introducing HomeKit</li><li class="thumbnail-id">Session 213</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>iOS 8 introduces HomeKit, a high-level device connectivity framework enabling apps to interact with physical accessories in the world around us. Learn the objects that define these devices, see how to control them, and discover how to create a full device control experience for the home.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/213xxbmca4in9u5/213/213_hd_introducing_homekit.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/213xxbmca4in9u5/213/213_sd_introducing_homekit.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="103-video">
+							<ul>
+								<li class="title">Apple Design Awards</li><li class="track">Special Events</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-103" href="/videos/wwdc/2014/?include=103#103" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Apple Design Awards</li><li class="thumbnail-id">Session 103</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>Join us for an unforgettable award ceremony celebrating developers and their outstanding work. The 2014 Apple Design Awards recognize state of the art iOS apps and OS X apps that reflect the very best in design, innovation, and technology excellence.</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/103xx8s53gk94hl/103/103_hd_apple_design_awards.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/103xx8s53gk94hl/103/103_sd_apple_design_awards.mov?dl=1">SD</a>										 																						</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                        <li class="session" id="102-video">
+							<ul>
+								<li class="title">Platforms State of the Union</li><li class="track">Special Events</li><li class="platform">iOS, OS X</li>
+							</ul>
+							<div class="details">
+								<div class="description active">
+									<a id="video-trigger-102" href="/videos/wwdc/2014/?include=102#102" class="video-trigger play-now"><ul class="thumbnail">
+										<li class="thumbnail-title">Platforms State of the Union</li><li class="thumbnail-id">Session 102</li><li class="thumbnail-play">Play</li>
+									</ul></a>
+									<p>WWDC 2014 Platforms State of the Union</p>
+                                    <p class="download">Download:
+                                    <a href="http://devstreaming.apple.com/videos/wwdc/2014/102xxw2o82y78a4/102/102_hd_platforms_state_of_the_union.mov?dl=1">HD</a> | <a href="http://devstreaming.apple.com/videos/wwdc/2014/102xxw2o82y78a4/102/102_sd_platforms_state_of_the_union.mov?dl=1">SD</a>										 	 | 											<a href="http://devstreaming.apple.com/videos/wwdc/2014/102xxw2o82y78a4/102/102_platforms_state_of_the_union.pdf?dl=1">PDF</a>										</p>
+                                </div>
+								<div class="error">
+									<h3>System Requirements</h3><br>
+									<p>To watch the streaming version of this video, use the latest version of Safari on a Mac running OS X Lion or later. Alternatively, you can watch this video in the <a href="https://itunes.apple.com/us/app/wwdc/id640199958?ls=1&amp;mt=8" target="blank">WWDC app</a> or download the video when available.</p>
+									<a href="#" class="close inlineClose"></a>
+								</div>
+								<div class="movie">
+								</div>
+							</div>
+						</li>
+                    </ul>
+                </section>
+            </section>
+        </div><!-- /content -->
+        
+        <div id="globalfooter">
+            <div id="breadory">
+                <ol id="breadcrumbs">
+                    <li class="home" data-hires="true"><a href="/">Developer</a></li>
+                    <li><a href="/videos/">Videos</a></li>
+                    <li>WWDC 2014 Sessions</li>
+                </ol>
+            </div><!--/breadory-->
+            <p class="gf-buy">Shop the <a href="http://www.apple.com/store/">Apple Online Store</a> (1-800-MY-APPLE), visit an <a href="http://www.apple.com/retail/">Apple Retail Store</a>, or find a <a href="http://www.apple.com/buy/locator/">reseller</a>.</p>
+            <ul class="gf-links piped">
+                <li><a href="/news/" class="first">News</a></li>
+                <li><a href="/register/">Register</a></li>
+                <li><a href="/bug-reporting/">Report Bugs</a></li>
+                <li><a href="/contact/">Contact Us</a></li>
+            </ul>
+            <div class="gf-sosumi">
+                <p>Copyright © 2014 Apple Inc. All rights reserved.</p>
+                <ul class="piped">
+                    <li><a href="http://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a></li>
+                    <li><a href="http://www.apple.com/privacy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div id="localization-links">
+                <ul>
+                    <li><a href="/cn/" title="Simplified Chinese">简体中文</a></li>
+                    <li><a href="/jp/" title="Japanese">日本語</a></li>
+                    <li><a href="/kr/" title="Korean">한국어</a></li>
+                </ul>
+            </div>	</div><!--/globalfooter-->
+        
+    </body>
+</html>
