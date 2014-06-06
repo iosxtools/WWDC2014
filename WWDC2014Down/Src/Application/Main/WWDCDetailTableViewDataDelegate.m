@@ -26,7 +26,7 @@ Copyright (c) http://www.iosxtools.com  All rights reserved.
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    id item = self.items[row];
+    WWDC *item = self.items[row];
     NSString *identifier = tableColumn.identifier;
     NSString *displayValue = [item valueForKey:tableColumn.identifier];
     NSView *result;
@@ -64,14 +64,22 @@ Copyright (c) http://www.iosxtools.com  All rights reserved.
         [hdButton setAction: @selector(hdBtnClicked:)];
         
         
-        NSButton *sdButton = result.subviews[0];
+        NSButton *sdButton = result.subviews[1];
         [sdButton setTarget: self];
         [sdButton setAction: @selector(sdBtnClicked:)];
         
         
-        NSButton *pdfButton = result.subviews[0];
-        [pdfButton setTarget: self];
-        [pdfButton setAction: @selector(pdfBtnClicked:)];
+         NSButton *pdfButton = result.subviews[2];
+        if(item.pdfLink.length>0)
+        {
+            [pdfButton setHidden:NO];
+            [pdfButton setTarget: self];
+            [pdfButton setAction: @selector(pdfBtnClicked:)];
+        }
+        else
+        {
+            [pdfButton setHidden:YES];
+        }
         
         //cell.stringValue = displayValue;
         
