@@ -69,6 +69,19 @@ modify url
 
 ```
 
+limit Max Concurrent Downloads Count 
+
+WWDCStateManager.m
+
+```
+- (void)addDownload:(NSDictionary*)downloadItem
+{
+
+[[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:5];
+
+}
+
+```
 
 
 ## Screenshots
@@ -92,7 +105,7 @@ Only take 4 days complete basic WWDC2014 Demo App.
 <p><a href="https://github.com/AFNetworking/AFNetworking">AFNetworking</a></p>
 <p><a href="https://github.com/tracy-e/OCGumbo">OCGumbo</a></p>
 <p><a href="https://github.com/larcus94/LBProgressBar">LBProgressBar</a></p>
-<p><a href="https://github.com/bb9z/RFDownloadManager">RFDownloadManager</a></p>
+<p><a href="https://github.com/thibaultCha/TCBlobDownload">TCBlobDownload</a></p>
 <p><a href="https://github.com/phranck/CNUserNotification">CNUserNotification</a></p>
 
 

@@ -40,13 +40,13 @@
         NSURL * url = [NSURL URLWithString:@"https://developer.apple.com/videos/wwdc/2014/"];
         //NSString * string = [[NSString alloc]initWithContentsOfURL:url];
         
-        //NSString *webContent = [[NSString alloc] initWithContentsOfURL:url usedEncoding:NULL error:NULL];
+        NSString *webContent = [[NSString alloc] initWithContentsOfURL:url usedEncoding:NULL error:NULL];
         
         
         
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
+       // NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
         
-        NSString *webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
+        //NSString *webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
         
         OCGumboDocument *document = [[OCGumboDocument alloc] initWithHTMLString:webContent];
         // OCGumboElement *root = document.rootElement;

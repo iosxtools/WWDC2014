@@ -41,17 +41,13 @@
 
 - (void)fetchData
 {
-    [self displayActivityView];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSArray *downloadItems = [[WWDCBO sharedInstance]wwdcAllDownloadTableItems];
-        [self.dataDelegate setData:downloadItems];
-        dispatch_async(dispatch_get_main_queue(),^
-        {
-            [self.tableView reloadData];
-            [self hideActivityView];
-        });
-        
-    });
+    
+    NSArray *downloadItems = [[WWDCBO sharedInstance]wwdcAllDownloadTableItems];
+    
+    [self.dataDelegate setData:downloadItems];
+    
+    [self.tableView reloadData];
+    
     
 }
 

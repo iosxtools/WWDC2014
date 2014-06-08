@@ -63,7 +63,7 @@
                                                               delegate:self];
     download.fileID = fileID;
     
-    [[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:3];
+    [[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:5];
     
     [[TCBlobDownloadManager sharedInstance] startDownload:download];
     
