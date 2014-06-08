@@ -61,7 +61,7 @@
 
 - (IBAction)wWDCHomeToolBarItemClick:(id)sender
 {
-    NSString *wwdcHomeUrl = @"https://developer.apple.com/videos/wwdc";
+    NSString *wwdcHomeUrl = @"https://developer.apple.com/videos/wwdc/2014/";
     NSURL *url = [NSURL URLWithString:wwdcHomeUrl];
     if( [[NSWorkspace sharedWorkspace] openURL:url] ){
         DLog(@"Failed to open url: %@",[url description]);

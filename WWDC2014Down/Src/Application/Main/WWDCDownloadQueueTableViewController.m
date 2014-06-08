@@ -37,7 +37,7 @@
     [self fetchData];
 }
 
-- (void)fetchData
+- (void)fetchData2
 {
     [self displayActivityView];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -50,6 +50,18 @@
                        });
         
     });
+}
+
+- (void)fetchData
+{
+ 
+    NSArray *downloadItems = [[WWDCDownStateManager sharedInstance]allSelectedDownloads];
+    if([downloadItems count]<=0){
+        return;
+    }
+    [self.dataDelegate setData:downloadItems];
+    [self.tableView reloadData];
+    
 }
 
 

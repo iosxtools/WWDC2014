@@ -8,14 +8,14 @@
 
 #import "WWDCDownStateManager.h"
 #import "WWDCDownState.h"
-#import "RFDownloadManager.h"
-#import "RFFileDownloadOperation.h"
-#import "WWDCFileDownloadOperation.h"
 #import "WWDCDownload.h"
-@interface WWDCDownStateManager()<RFDownloadManagerDelegate>
-@property(nonatomic,strong)RFDownloadManager *downloadManager;
+#import "TCBlobDownload.h"
+#import "WWDCTCBlobDownloader.h"
+@interface WWDCDownStateManager()<TCBlobDownloaderDelegate>
+@property(nonatomic,strong)TCBlobDownloadManager *tcBlobDownloadManager;
 @property(nonatomic,strong)NSMutableArray *requestDownItems;
 @property(nonatomic,strong)NSMutableDictionary *requestDownItemsMap;
+@property(nonatomic,assign)int refreshPercentCount;
 @end
 @implementation WWDCDownStateManager
 + (WWDCDownStateManager*)sharedInstance
@@ -33,9 +33,11 @@
     return self.requestDownItemsMap[@(fileID)];
     
 }
+
+
 - (void)addDownload:(NSDictionary*)downloadItem
 {
-    //WWDCFileDownloadOperation *op = [[WWDCFileDownloadOperation alloc]init];
+    
     if([self.requestDownItems containsObject:downloadItem])
     {
         return;
@@ -52,80 +54,101 @@
     NSString *encodedText = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url = [NSURL URLWithString:encodedText];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+   
     
     NSString *targetPath = [AppPreference sharedPreference].downLoadPath;
     
-   
-    //[strongSelf.downloadManager addURL:url fileStorePath:targetPath];
-    //[strongSelf.downloadManager startAll];
     
-    WWDCFileDownloadOperation *fileDownloadOperation = [[WWDCFileDownloadOperation alloc]initWithRequest:request targetPath:targetPath shouldResume:YES shouldCoverOldFile:YES];
+    WWDCTCBlobDownloader *download = [[WWDCTCBlobDownloader alloc] initWithURL:url  downloadPath:targetPath
+                                                              delegate:self];
+    download.fileID = fileID;
     
-  
-    fileDownloadOperation.fileID = fileID;
+    [[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:3];
     
-    [self.downloadManager addOperation:fileDownloadOperation];
-    [self.downloadManager startAll];
+    [[TCBlobDownloadManager sharedInstance] startDownload:download];
+    
     
 }
+
+#pragma TCBlobDownloadManager delegate
+
+- (void)download:(TCBlobDownloader *)blobDownload didFinishWithSuccess:(BOOL)downloadFinished atPath:(NSString *)pathToFile
+{
+    WWDCTCBlobDownloader *download = (WWDCTCBlobDownloader*)blobDownload;
+    
+    NSInteger fileID = download.fileID;
+    
+    [self.state downCompleted:fileID];
+
+}
+
+- (void)download:(TCBlobDownloader *)blobDownload
+  didReceiveData:(uint64_t)receivedLength
+         onTotal:(uint64_t)totalLength
+        progress:(float)progress
+{
+   WWDCTCBlobDownloader *download = (WWDCTCBlobDownloader*)blobDownload;
+    
+    NSInteger fileID = download.fileID;
+    
+    double percent = ((double)receivedLength/(double)totalLength *100);
+    
+    if(percent>100)
+    {
+        percent = 100.;
+        
+        [self.state downPercentChanged:fileID percent:percent];
+        return;
+    }
+    
+    
+    self.refreshPercentCount++;
+    if(self.refreshPercentCount>=5){
+        self.refreshPercentCount = 0;
+        [self.state downPercentChanged:fileID percent:percent];
+    }
+    
+    //DLog(@"")
+    DLog(@"fileID =%ld bytesDownloaded=%lld bytesFileSize=%lld p=%f",fileID,receivedLength,totalLength,percent);
+   
+
+    
+}
+
+- (void)download:(TCBlobDownloader *)blobDownload didReceiveFirstResponse:(NSURLResponse *)response
+{
+   WWDCTCBlobDownloader *download = (WWDCTCBlobDownloader*)blobDownload;
+    
+    NSInteger fileID = download.fileID;
+    
+    NSLog(@"begin download file id=%ld",fileID);
+}
+
+- (void)download:(TCBlobDownloader *)blobDownload didStopWithError:(NSError *)error
+{
+    WWDCTCBlobDownloader *download = (WWDCTCBlobDownloader*)blobDownload;
+    
+    NSInteger fileID = download.fileID;
+    
+    NSLog(@"download stop file id=%ld error=%@",fileID,error);
+}
+
+
 - (void)addDownloads:(NSArray*)downloadItems
 {
+   
     for(NSDictionary *downloadItem in downloadItems)
     {
         [self addDownload:downloadItem];
     }
+    
     [self.state downStart];
+    
 }
 - (NSArray*)allSelectedDownloads
 {
     return [self.requestDownItems copy];
 }
-#pragma RFDownloadManager Delegate
-// download complete
-- (void)RFDownloadManager:(RFDownloadManager *)downloadManager operationCompleted:(RFFileDownloadOperation *)operation;
-{
-    WWDCFileDownloadOperation *op = (WWDCFileDownloadOperation*)operation;
-   
-    NSInteger fileID = op.fileID;
-   
-    [self.state downCompleted:fileID];
-   
-}
-// download failed
-- (void)RFDownloadManager:(RFDownloadManager *)downloadManager operationFailed:(RFFileDownloadOperation *)operation;
-
-{
-    WWDCFileDownloadOperation *op = (WWDCFileDownloadOperation*)operation;
-    NSInteger fileID = op.fileID;
-    NSString *url = [op.request.URL absoluteString];
-    DLog(@"download failed (%@) ",url);
-    
-    [self.state downFailed:fileID error:nil];
-}
-// update download progress indicator percent
-- (void)RFDownloadManager:(RFDownloadManager *)downloadManager operationStateUpdate:(RFFileDownloadOperation *)operation;
-{
-   WWDCFileDownloadOperation *op = (WWDCFileDownloadOperation*)operation;
-    
-    NSInteger fileID = op.fileID;
-    
-    
-   
-    long long bytesFileSize = op.bytesFileSize;
-    
-    long long bytesDownloaded = op.bytesDownloaded;
-    
-    double percent = ((double)bytesDownloaded/(double)bytesFileSize *100);
-    if(percent>100)
-    {
-        percent = 100.;
-    }
-    DLog(@"bytesDownloaded=%lld bytesFileSize=%lld p=%f",bytesDownloaded,bytesFileSize,percent);
-    [self.state downPercentChanged:fileID percent:percent];
-}
-
-
 
 #pragma ivar init
 - (WWDCDownState*)state{
@@ -134,14 +157,14 @@
     }
     return _state;
 }
-- (RFDownloadManager*)downloadManager
+
+- (TCBlobDownloadManager*)tcBlobDownloadManager
 {
-    if(!_downloadManager)
+    if(!_tcBlobDownloadManager)
     {
-        _downloadManager = [RFDownloadManager sharedInstance];
-        _downloadManager.delegate = self;
+        _tcBlobDownloadManager = [TCBlobDownloadManager sharedInstance];
     }
-    return _downloadManager;
+    return _tcBlobDownloadManager;
 }
 - (NSMutableArray*)requestDownItems
 {
