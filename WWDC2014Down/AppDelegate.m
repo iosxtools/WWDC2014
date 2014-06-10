@@ -28,8 +28,36 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
+    
+   
+    
     [self parseWWDCWebURLLink];
 }
+
+- (void)awakeFromNib
+{
+    
+    [super awakeFromNib];
+    
+
+}
+
+
+- (void)windowTitleConfig
+{
+   
+    //[super windowTitleConfig];
+    
+    [self.window setRepresentedURL:[NSURL URLWithString:@"WindowTitle"]];
+    
+    [[XXXCommonImageCache sharedInstance]upDateWindowTitleImage:[NSImage imageNamed:@"WWDC2014_App"]];
+    NSImage *image = [[XXXCommonImageCache sharedInstance]windowTitleImage];
+    [[self.window standardWindowButton:NSWindowDocumentIconButton] setImage:image];
+    
+     [[self window] setFrame:[[NSScreen mainScreen] visibleFrame] display:YES];
+}
+
 
 - (void)parseWWDCWebURLLink
 {

@@ -8,6 +8,7 @@
 #import "WWDCMainViewController.h"
 #import "WWDCCategoryTableViewController.h"
 #import "WWDCDetailTableViewController.h"
+
 @interface WWDCMainViewController ()
 @property(nonatomic,strong)WWDCCategoryTableViewController *wWDCCategoryTableViewController;
 @property(nonatomic,strong)WWDCDetailTableViewController *wWDCDetailTableViewController;
@@ -17,7 +18,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    return [super initWithNibName:nil bundle:nil];
+    return [super initWithNibName:nibNameOrNil bundle:nil];
 }
 - (void)awakeFromNib{
     [super awakeFromNib];

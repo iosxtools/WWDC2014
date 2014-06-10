@@ -142,6 +142,10 @@
 		71D6107519428F5600807834 /* TCBlobDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D6107219428F5600807834 /* TCBlobDownloader.m */; };
 		71D6107619428F5600807834 /* TCBlobDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D6107419428F5600807834 /* TCBlobDownloadManager.m */; };
 		71D61079194299E600807834 /* NSFileManager+TCBlobDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D61078194299E600807834 /* NSFileManager+TCBlobDownload.m */; };
+		71FA1AAE1946B293004672D1 /* WWDCMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AAD1946B293004672D1 /* WWDCMainViewController.xib */; };
+		71FA1AB01946B33A004672D1 /* WWDCDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AAF1946B33A004672D1 /* WWDCDownloadViewController.xib */; };
+		71FA1AB31946B3F4004672D1 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AB11946B3F4004672D1 /* list.png */; };
+		71FA1AB41946B3F4004672D1 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AB21946B3F4004672D1 /* list@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +386,10 @@
 		71D6107419428F5600807834 /* TCBlobDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCBlobDownloadManager.m; sourceTree = "<group>"; };
 		71D61077194299E600807834 /* NSFileManager+TCBlobDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TCBlobDownload.h"; sourceTree = "<group>"; };
 		71D61078194299E600807834 /* NSFileManager+TCBlobDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TCBlobDownload.m"; sourceTree = "<group>"; };
+		71FA1AAD1946B293004672D1 /* WWDCMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWDCMainViewController.xib; sourceTree = "<group>"; };
+		71FA1AAF1946B33A004672D1 /* WWDCDownloadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WWDCDownloadViewController.xib; sourceTree = "<group>"; };
+		71FA1AB11946B3F4004672D1 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		71FA1AB21946B3F4004672D1 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +449,7 @@
 				712B10E7193937A100D9D4FE /* WWDCDownloadQueueTableViewDataDelegate.h */,
 				712B10E8193937A100D9D4FE /* WWDCDownloadQueueTableViewDataDelegate.m */,
 				712B10E9193937A100D9D4FE /* WWDCDownloadViewController.h */,
+				71FA1AAF1946B33A004672D1 /* WWDCDownloadViewController.xib */,
 				712B10EA193937A100D9D4FE /* WWDCDownloadViewController.m */,
 				715C3D1A1937CE4F007D1093 /* WWDCDownloadTableViewColumnDefConfig.h */,
 				715C3D1B1937CE4F007D1093 /* WWDCDownloadTableViewColumnDefConfig.m */,
@@ -574,6 +583,8 @@
 		71A37B3619352A41008AA1D6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				71FA1AB11946B3F4004672D1 /* list.png */,
+				71FA1AB21946B3F4004672D1 /* list@2x.png */,
 				712B10D71939224200D9D4FE /* WWDC2014_App.png */,
 				712B10C91939159F00D9D4FE /* CoreData_App.png */,
 				712B10CA1939159F00D9D4FE /* SQLite_App.png */,
@@ -933,6 +944,7 @@
 				71A37D1B19361841008AA1D6 /* BO */,
 				719609BA19366DE700D6D82F /* Transformer */,
 				71A37D6919363B2D008AA1D6 /* WWDCMainViewController.h */,
+				71FA1AAD1946B293004672D1 /* WWDCMainViewController.xib */,
 				71A37D6A19363B2D008AA1D6 /* WWDCMainViewController.m */,
 			);
 			path = WWDC;
@@ -1047,6 +1059,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = com.iosxtools;
 				TargetAttributes = {
+					71A37AF419352941008AA1D6 = {
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
 					71A37B1519352941008AA1D6 = {
 						TestTargetID = 71A37AF419352941008AA1D6;
 					};
@@ -1079,6 +1098,7 @@
 				711FDE001936746B00B94802 /* SharePopoverViewController.xib in Resources */,
 				71A37B0319352941008AA1D6 /* InfoPlist.strings in Resources */,
 				712B10C7193914F600D9D4FE /* toolbar-appstore@2x.png in Resources */,
+				71FA1AB01946B33A004672D1 /* WWDCDownloadViewController.xib in Resources */,
 				71A37C1B19352A42008AA1D6 /* toolbar_home.png in Resources */,
 				71A37B1119352941008AA1D6 /* Images.xcassets in Resources */,
 				715C3D341937D997007D1093 /* checkmark_off.tiff in Resources */,
@@ -1103,9 +1123,11 @@
 				71A37C6E19352A42008AA1D6 /* CNUserNotificationDefaultSound.aif in Resources */,
 				715C3D191937CB87007D1093 /* toolbar-down.png in Resources */,
 				715C3D241937CE8D007D1093 /* WWDCDownloadTableViewController.xib in Resources */,
+				71FA1AB41946B3F4004672D1 /* list@2x.png in Resources */,
 				715C3D351937D997007D1093 /* checkmark_on.tiff in Resources */,
 				711FDE1A1936D63900B94802 /* icon.iconset in Resources */,
 				71A37C1D19352A42008AA1D6 /* twitter.png in Resources */,
+				71FA1AB31946B3F4004672D1 /* list.png in Resources */,
 				71A37C4719352A42008AA1D6 /* SharePublishWindowController.xib in Resources */,
 				712B10CC1939159F00D9D4FE /* SQLite_App.png in Resources */,
 				712B10D81939224200D9D4FE /* WWDC2014_App.png in Resources */,
@@ -1119,6 +1141,7 @@
 				712B10C8193914F600D9D4FE /* toolbar-appstore.png in Resources */,
 				71A37C0F19352A42008AA1D6 /* attachPic.png in Resources */,
 				71A37C1E19352A42008AA1D6 /* twitter@2x.png in Resources */,
+				71FA1AAE1946B293004672D1 /* WWDCMainViewController.xib in Resources */,
 				71A37C1119352A42008AA1D6 /* facebook.png in Resources */,
 				71A37C1319352A42008AA1D6 /* shareicon.png in Resources */,
 				71A37C1519352A42008AA1D6 /* sinaweibo.png in Resources */,
@@ -1346,6 +1369,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1368,6 +1392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

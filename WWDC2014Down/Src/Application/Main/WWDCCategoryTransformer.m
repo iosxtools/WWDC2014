@@ -16,7 +16,7 @@ static NSDictionary * CateTreeNodeFromModelObject(NSArray *models) {
     for(Track *category in models){
         NSMutableDictionary *nodeMap = [NSMutableDictionary dictionary];
         nodeMap[@"name"]=category.name;
-        nodeMap[@"icon"]=[NSImage imageNamed:@"wwdcIcon29x29"];
+        nodeMap[@"icon"]=[NSImage imageNamed:@"list"];
         [nodes addObject:nodeMap];
     }
     return [nodes copy];

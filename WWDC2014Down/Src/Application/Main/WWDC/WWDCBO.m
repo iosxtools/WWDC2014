@@ -44,9 +44,9 @@
         
         
         
-       // NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
         
-        //NSString *webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
+        webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
         
         OCGumboDocument *document = [[OCGumboDocument alloc] initWithHTMLString:webContent];
         // OCGumboElement *root = document.rootElement;
