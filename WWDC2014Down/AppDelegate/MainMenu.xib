@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1080" identifier="macosx"/>
+        <deployment defaultVersion="1090" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
@@ -742,12 +742,11 @@
                     <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="M9F-Lx-cSC"/>
-                    <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="eYK-IJ-3Ic"/>
                     <toolbarItem reference="JY9-Wd-QhD"/>
+                    <toolbarItem reference="akJ-ZV-N7W"/>
                     <toolbarItem reference="Gq1-gQ-5dz"/>
                     <toolbarItem reference="UbN-D9-H40"/>
-                    <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="M9F-Lx-cSC"/>
                     <toolbarItem reference="M9F-Lx-cSC"/>

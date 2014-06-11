@@ -14,9 +14,6 @@
 #import <XXXOSXCommon/XXXOSXCommon.h>
 #import <XXXOSXUI/XXXOSXUI.h>
 
-
-
-
 //common header files
 #import "AppCommon.h"
 #import "OCGumbo+Query.h"

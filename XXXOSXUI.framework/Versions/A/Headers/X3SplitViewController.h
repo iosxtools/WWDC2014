@@ -14,4 +14,5 @@
 - (void)splitViewConfig;
 - (NSView*)leftView;
 - (NSView*)rightView;
+- (void)openCloseTargetView;
 @end

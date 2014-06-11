@@ -12,10 +12,7 @@
 @property(nonatomic,strong)WWDCDetailTableViewController *wWDCDetailTableViewController;
 @property(nonatomic,strong)WWDCDownloadQueueTableViewController *wWDCDownloadQueueTableViewController;
 
-@property(nonatomic,strong)NSView *targetView1;
-@property(nonatomic,strong)NSView *targetView2;
-@property(nonatomic,assign)NSRect targetView1LastFrame;
-@property(nonatomic,assign)NSRect targetView2LastFrame;
+
 @end
 
 @implementation WWDCDetailViewController
@@ -27,8 +24,7 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self registerSlideNotify];
-    [self collapseViewConfig];
-    [self toggleMainView];
+    [self openCloseTargetView];
 }
 
 - (void)registerSlideNotify
@@ -41,94 +37,13 @@
 }
 
 #pragma collapseView config
-- (void)collapseViewConfig
-{
-    NSArray *subviews = [self.splitView subviews];
-    self.targetView1 = subviews[0];
-    self.targetView2 =  subviews[1];
-    //self.targetView1LastFrame = self.targetView1.frame;
-    //self.targetView2LastFrame = self.targetView2.frame;
-}
+
 
 - (void)recvOpenMainSlideNotification:(NSNotification*)notification
 {
-    [self toggleMainView];
+    [self openCloseTargetView];
 }
 
-- (void)toggleMainView
-{
-    if ([self.splitView isSubviewCollapsed:self.targetView2]) {
-        // NSSplitView hides the collapsed subview
-       
-        
-        NSMutableDictionary *target1AnimationDict = [NSMutableDictionary dictionaryWithCapacity:2];
-        [target1AnimationDict setObject:self.targetView1 forKey:NSViewAnimationTargetKey];
-        
-        self.targetView1.height = self.targetView1LastFrame.size.height;
-        self.targetView1.top = 0;
-        
-        [target1AnimationDict setObject:[NSValue valueWithRect:self.targetView1LastFrame] forKey:NSViewAnimationEndFrameKey];
-        
-        NSMutableDictionary *target2AnimationDict = [NSMutableDictionary dictionaryWithCapacity:2];
-        [target2AnimationDict setObject:self.targetView2 forKey:NSViewAnimationTargetKey];
-        
-        //NSRect newMainFrame  =
-        self.targetView2.top = self.splitView.height-self.targetView1.height;
-        self.targetView2.height = self.self.targetView2LastFrame.size.height;
-        //self.targetView2.frame = self.targetView2LastFrame;
-        //self.targetView2LastFrame = self.targetView2.frame;
-        
-        [target2AnimationDict setObject:[NSValue valueWithRect:self.targetView2LastFrame] forKey:NSViewAnimationEndFrameKey];
-        
-        NSViewAnimation *expandAnimation = [[NSViewAnimation alloc] initWithViewAnimations:[NSArray arrayWithObjects:target1AnimationDict, target2AnimationDict, nil]];
-        [expandAnimation setDuration:0.25f];
-        [expandAnimation startAnimation];
-        
-         self.targetView2.hidden = NO;
-        
-    } else {
-        // Store last width so we can jump back
-        
-        self.targetView1LastFrame = self.targetView1.frame;
-        
-        self.targetView2LastFrame = self.targetView2.frame;
-        
-        NSMutableDictionary *target1AnimationDict = [NSMutableDictionary dictionaryWithCapacity:2];
-        [target1AnimationDict setObject:self.targetView1 forKey:NSViewAnimationTargetKey];
-        NSRect newMainFrame = self.targetView1.frame;
-        newMainFrame.size.height =  self.splitView.height;
-        //newMainFrame.origin.y = 0;
-        [target1AnimationDict setObject:[NSValue valueWithRect:newMainFrame] forKey:NSViewAnimationEndFrameKey];
-        
-        NSMutableDictionary *target2AnimationDict = [NSMutableDictionary dictionaryWithCapacity:2];
-        [target2AnimationDict setObject:self.targetView2 forKey:NSViewAnimationTargetKey];
-        NSRect newInspectorFrame = self.targetView2.frame;
-        newInspectorFrame.size.height = 0.0f;
-        //self.targetView2.hidden = YES;
-        //newInspectorFrame.origin.y = self.splitView.height;
-        [target2AnimationDict setObject:[NSValue valueWithRect:newInspectorFrame] forKey:NSViewAnimationEndFrameKey];
-        
-        NSViewAnimation *collapseAnimation = [[NSViewAnimation alloc] initWithViewAnimations:[NSArray arrayWithObjects:target1AnimationDict, target2AnimationDict, nil]];
-        [collapseAnimation setDuration:0.25f];
-        [collapseAnimation startAnimation];
-    }
-}
-
-- (BOOL)splitView:(NSSplitView *)splitView canCollapseSubview:(NSView *)subview {
-    BOOL result = NO;
-    if (splitView == self.splitView && subview == self.targetView2) {
-        result = YES;
-    }
-    return result;
-}
-
-- (BOOL)splitView:(NSSplitView *)splitView shouldCollapseSubview:(NSView *)subview forDoubleClickOnDividerAtIndex:(NSInteger)dividerIndex {
-    BOOL result = NO;
-    if (splitView == self.splitView && subview == self.targetView2) {
-        result = YES;
-    }
-    return result;
-}
 
 
 - (void)splitViewControllersConfig{

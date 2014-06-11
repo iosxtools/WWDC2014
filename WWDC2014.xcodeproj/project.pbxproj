@@ -91,7 +91,6 @@
 		71A37D0819353552008AA1D6 /* OCGumbo.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A37D0519353552008AA1D6 /* OCGumbo.m */; };
 		71A37D0919353552008AA1D6 /* OCGumbo+Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 71A37D0719353552008AA1D6 /* OCGumbo+Query.m */; };
 		71A37D0B19353A6E008AA1D6 /* wwdc.html in Resources */ = {isa = PBXBuildFile; fileRef = 71A37D0A19353A6E008AA1D6 /* wwdc.html */; };
-		71C650051947E25E0053CD36 /* XXXOSXUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C650041947E25E0053CD36 /* XXXOSXUI.framework */; };
 		71C650091947E2820053CD36 /* XXXCommonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C650071947E2820053CD36 /* XXXCommonViewController.xib */; };
 		71C6500A1947E2820053CD36 /* X3CommonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C650081947E2820053CD36 /* X3CommonViewController.xib */; };
 		71C6501B1947E2B10053CD36 /* downStart2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71C6500B1947E2B10053CD36 /* downStart2.png */; };
@@ -168,10 +167,11 @@
 		71C650CC1947E5560053CD36 /* XXXOSXCommon.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C650C41947E5470053CD36 /* XXXOSXCommon.framework */; };
 		71C650CD1947E5560053CD36 /* XXXOSXVendorFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C650C51947E5470053CD36 /* XXXOSXVendorFoundation.framework */; };
 		71C650CE1947E5560053CD36 /* XXXOSXFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C650C61947E5470053CD36 /* XXXOSXFoundation.framework */; };
-		71C650CF1947E5560053CD36 /* XXXOSXUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C650041947E25E0053CD36 /* XXXOSXUI.framework */; };
 		71C650D21947E59C0053CD36 /* WWDCCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C650D11947E59C0053CD36 /* WWDCCommonViewController.m */; };
 		71C650D51947E5BD0053CD36 /* downAdd2.png in Resources */ = {isa = PBXBuildFile; fileRef = 71C650D31947E5BD0053CD36 /* downAdd2.png */; };
 		71C650D61947E5BD0053CD36 /* downAdd2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71C650D41947E5BD0053CD36 /* downAdd2@2x.png */; };
+		71C650DB1947E9E90053CD36 /* XXXOSXUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C650DA1947E9E80053CD36 /* XXXOSXUI.framework */; };
+		71C650DC1947E9F00053CD36 /* XXXOSXUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 71C650DA1947E9E80053CD36 /* XXXOSXUI.framework */; };
 		71FA1AB31946B3F4004672D1 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AB11946B3F4004672D1 /* list.png */; };
 		71FA1AB41946B3F4004672D1 /* list@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 71FA1AB21946B3F4004672D1 /* list@2x.png */; };
 /* End PBXBuildFile section */
@@ -193,11 +193,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				71C650DC1947E9F00053CD36 /* XXXOSXUI.framework in CopyFiles */,
 				71C650CB1947E5560053CD36 /* XXXOSXVendorUI.framework in CopyFiles */,
 				71C650CC1947E5560053CD36 /* XXXOSXCommon.framework in CopyFiles */,
 				71C650CD1947E5560053CD36 /* XXXOSXVendorFoundation.framework in CopyFiles */,
 				71C650CE1947E5560053CD36 /* XXXOSXFoundation.framework in CopyFiles */,
-				71C650CF1947E5560053CD36 /* XXXOSXUI.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,7 +332,6 @@
 		71A37D0619353552008AA1D6 /* OCGumbo+Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OCGumbo+Query.h"; sourceTree = "<group>"; };
 		71A37D0719353552008AA1D6 /* OCGumbo+Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "OCGumbo+Query.m"; sourceTree = "<group>"; };
 		71A37D0A19353A6E008AA1D6 /* wwdc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wwdc.html; sourceTree = "<group>"; };
-		71C650041947E25E0053CD36 /* XXXOSXUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XXXOSXUI.framework; sourceTree = "<group>"; };
 		71C650071947E2820053CD36 /* XXXCommonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XXXCommonViewController.xib; sourceTree = "<group>"; };
 		71C650081947E2820053CD36 /* X3CommonViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = X3CommonViewController.xib; sourceTree = "<group>"; };
 		71C6500B1947E2B10053CD36 /* downStart2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downStart2.png; sourceTree = "<group>"; };
@@ -452,6 +451,7 @@
 		71C650D11947E59C0053CD36 /* WWDCCommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWDCCommonViewController.m; sourceTree = "<group>"; };
 		71C650D31947E5BD0053CD36 /* downAdd2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downAdd2.png; sourceTree = "<group>"; };
 		71C650D41947E5BD0053CD36 /* downAdd2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "downAdd2@2x.png"; sourceTree = "<group>"; };
+		71C650DA1947E9E80053CD36 /* XXXOSXUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = XXXOSXUI.framework; sourceTree = "<group>"; };
 		71FA1AB11946B3F4004672D1 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
 		71FA1AB21946B3F4004672D1 /* list@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "list@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -463,9 +463,9 @@
 			files = (
 				71C650C71947E5470053CD36 /* XXXOSXVendorUI.framework in Frameworks */,
 				71C650C81947E5470053CD36 /* XXXOSXCommon.framework in Frameworks */,
+				71C650DB1947E9E90053CD36 /* XXXOSXUI.framework in Frameworks */,
 				71A37AF919352941008AA1D6 /* Cocoa.framework in Frameworks */,
 				71C650CA1947E5470053CD36 /* XXXOSXFoundation.framework in Frameworks */,
-				71C650051947E25E0053CD36 /* XXXOSXUI.framework in Frameworks */,
 				71C650C91947E5470053CD36 /* XXXOSXVendorFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,11 +516,11 @@
 		71A37AF719352941008AA1D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71C650DA1947E9E80053CD36 /* XXXOSXUI.framework */,
 				71C650C31947E5470053CD36 /* XXXOSXVendorUI.framework */,
 				71C650C41947E5470053CD36 /* XXXOSXCommon.framework */,
 				71C650C51947E5470053CD36 /* XXXOSXVendorFoundation.framework */,
 				71C650C61947E5470053CD36 /* XXXOSXFoundation.framework */,
-				71C650041947E25E0053CD36 /* XXXOSXUI.framework */,
 				71A37AF819352941008AA1D6 /* Cocoa.framework */,
 				71A37B1719352941008AA1D6 /* XCTest.framework */,
 				71A37AFA19352941008AA1D6 /* Other Frameworks */,
