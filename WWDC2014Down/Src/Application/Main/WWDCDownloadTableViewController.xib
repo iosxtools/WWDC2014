@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
+        <deployment defaultVersion="1080" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
@@ -47,12 +48,12 @@
                                                 <rect key="frame" x="1" y="1" width="400" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <button toolTip="save current graph as image" id="xLc-Xf-T2C">
-                                                        <rect key="frame" x="0.0" y="5" width="24" height="19"/>
-                                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="checkmark_off" imagePosition="overlaps" alignment="center" controlSize="small" state="on" imageScaling="proportionallyDown" inset="2" id="uQw-Ya-Eql">
-                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="smallSystem"/>
+                                                    <button id="1Rc-cs-iSe">
+                                                        <rect key="frame" x="7" y="6" width="22" height="18"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                        <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="XOc-jE-LT6">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                     </button>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" id="avx-7e-VxO">
@@ -167,7 +168,7 @@
                     </connections>
                 </button>
                 <button id="szK-Fj-jvt">
-                    <rect key="frame" x="12" y="8" width="39" height="18"/>
+                    <rect key="frame" x="8" y="8" width="39" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="check" title="All" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qaa-b0-K9v">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -189,7 +190,7 @@
                     </connections>
                 </button>
                 <button id="RYQ-JJ-9dy">
-                    <rect key="frame" x="111" y="8" width="39" height="18"/>
+                    <rect key="frame" x="112" y="8" width="39" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="check" title="SD" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="SGz-ES-dqZ">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -200,7 +201,7 @@
                     </connections>
                 </button>
                 <button id="hps-cU-QkZ">
-                    <rect key="frame" x="160" y="8" width="46" height="18"/>
+                    <rect key="frame" x="159" y="8" width="46" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <buttonCell key="cell" type="check" title="PDF" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="ZB4-2N-ysc">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -213,7 +214,4 @@
             </subviews>
         </customView>
     </objects>
-    <resources>
-        <image name="checkmark_off" width="91" height="91"/>
-    </resources>
 </document>

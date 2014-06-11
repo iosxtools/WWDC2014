@@ -1,7 +1,7 @@
 /*
  WWDC.m
  project
- Created by author on 28/05/2014 10:57PM.
+ Created by author on 09/06/2014 05:18AM.
  Copyright (c) 2014 author. All rights reserved.
  */
 #import "WWDC.h"
@@ -16,68 +16,68 @@
 	{
         id value ;
         value = dictionary[@"ID"];
-        if(value) _ID = [value longValue];  
-
+        if(value) _ID = [value longValue];
+        
         value = dictionary[@"wwdcYear"];
-        if(value) _wwdcYear = value;  
-
+        if(value) _wwdcYear = value;
+        
         value = dictionary[@"title"];
-        if(value) _title = value;  
-
+        if(value) _title = value;
+        
         value = dictionary[@"category"];
-        if(value) _category = value;  
-
+        if(value) _category = value;
+        
         value = dictionary[@"platform"];
-        if(value) _platform = value;  
-
+        if(value) _platform = value;
+        
         value = dictionary[@"hdLink"];
-        if(value) _hdLink = value;  
-
+        if(value) _hdLink = value;
+        
         value = dictionary[@"sdLink"];
-        if(value) _sdLink = value;  
-
+        if(value) _sdLink = value;
+        
         value = dictionary[@"pdfLink"];
-        if(value) _pdfLink = value;  
-
-        value = dictionary[@"desc"];
-        if(value) _desc = value;  
-
+        if(value) _pdfLink = value;
+        
+        value = dictionary[@"details"];
+        if(value) _details = value;
+        
         value = dictionary[@"sortOrder"];
-        if(value) _sortOrder = [value longValue];  
-
-  
+        if(value) _sortOrder = [value longValue];
+        
+        
     }
-    return self;  
-}               
+    return self;
+}
 - (id)initWithCoder:(NSCoder *)coder{
 	if ((self = [super init]))
 	{
     	if ([coder allowsKeyedCoding])
 	    {
             _ID = [coder decodeIntegerForKey:@"ID"];
-            _wwdcYear = [coder decodeObjectForKey:@"wwdcYear"];  
-            _title = [coder decodeObjectForKey:@"title"];  
-            _category = [coder decodeObjectForKey:@"category"];  
-            _platform = [coder decodeObjectForKey:@"platform"];  
-            _hdLink = [coder decodeObjectForKey:@"hdLink"];  
-            _sdLink = [coder decodeObjectForKey:@"sdLink"];  
-            _pdfLink = [coder decodeObjectForKey:@"pdfLink"];  
-            _desc = [coder decodeObjectForKey:@"desc"];  
+            _wwdcYear = [coder decodeObjectForKey:@"wwdcYear"];
+            _title = [coder decodeObjectForKey:@"title"];
+            _category = [coder decodeObjectForKey:@"category"];
+            _platform = [coder decodeObjectForKey:@"platform"];
+            _hdLink = [coder decodeObjectForKey:@"hdLink"];
+            _sdLink = [coder decodeObjectForKey:@"sdLink"];
+            _pdfLink = [coder decodeObjectForKey:@"pdfLink"];
+            _details = [coder decodeObjectForKey:@"details"];
             _sortOrder = [coder decodeIntegerForKey:@"sortOrder"];
         }
         else
         {
             _ID = [[coder decodeObject]longValue];
-            _wwdcYear = [coder decodeObject];  
-            _title = [coder decodeObject];  
-            _category = [coder decodeObject];  
-            _platform = [coder decodeObject];  
-            _hdLink = [coder decodeObject];  
-            _sdLink = [coder decodeObject];  
-            _pdfLink = [coder decodeObject];  
-            _desc = [coder decodeObject];  
+            _wwdcYear = [coder decodeObject];
+            _title = [coder decodeObject];
+            _category = [coder decodeObject];
+            _platform = [coder decodeObject];
+            _hdLink = [coder decodeObject];
+            _sdLink = [coder decodeObject];
+            _pdfLink = [coder decodeObject];
+            _details = [coder decodeObject];
             _sortOrder = [[coder decodeObject]longValue];
-        
+            
         }
     }
     return self;
@@ -93,7 +93,7 @@
         if(_hdLink) [coder encodeObject:_hdLink forKey:@"hdLink"];
         if(_sdLink) [coder encodeObject:_sdLink forKey:@"sdLink"];
         if(_pdfLink) [coder encodeObject:_pdfLink forKey:@"pdfLink"];
-        if(_desc) [coder encodeObject:_desc forKey:@"desc"];
+        if(_details) [coder encodeObject:_details forKey:@"details"];
         [coder encodeInt64:_sortOrder forKey:@"sortOrder"];
     }
     else
@@ -106,14 +106,14 @@
         if(_hdLink) [coder encodeObject:_hdLink];
         if(_sdLink) [coder encodeObject:_sdLink];
         if(_pdfLink) [coder encodeObject:_pdfLink];
-        if(_desc) [coder encodeObject:_desc];
+        if(_details) [coder encodeObject:_details];
         [coder encodeValueOfObjCType:@encode(long) at:&_sortOrder];
-    
+        
     }
 }
 - (BOOL)isEqual:(WWDC *)obj {
     if(![obj isKindOfClass:WWDC.class])
-    { 
+    {
         return NO;
     }
     return (self.ID==obj.ID)
@@ -124,7 +124,7 @@
     && ([self.hdLink isEqual:obj.hdLink])
     && ([self.sdLink isEqual:obj.sdLink])
     && ([self.pdfLink isEqual:obj.pdfLink])
-    && ([self.desc isEqual:obj.desc])
+    && ([self.details isEqual:obj.details])
     && (self.sortOrder==obj.sortOrder)
     ;
 }
@@ -161,22 +161,17 @@
 
 - (BOOL)save
 {
-    NSArray *rs = [self.dao findByAttributes:@{@"title":self.title}];
-    if([rs count]<=0)
-    {
-        return [self.dao insert:self];
-    }
-    return YES;
+    return [self.dao insert:self];
 }
 
 - (BOOL)update
 {
-     return [self.dao update:self];
+    return [self.dao update:self];
 }
 
 - (BOOL)delete
 {
-     return [self.dao delete:self];
+    return [self.dao delete:self];
 }
 
 @end

@@ -15,4 +15,7 @@
 - (void)addDownloads:(NSArray*)downloadItems;
 - (NSArray*)allSelectedDownloads;
 - (NSMutableDictionary*)downItemWithFileID:(NSInteger)fileID;
+- (void)cancellAllDownload;
+- (void)start;
+- (void)stop;
 @end

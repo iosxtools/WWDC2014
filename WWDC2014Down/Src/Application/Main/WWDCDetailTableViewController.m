@@ -9,11 +9,11 @@
 #import "WWDCDetailTableViewColumnDefConfig.h"
 #import "WWDCDetailTableViewDataDelegate.h"
 #import "WWDCBO.h"
-
+#import "WWDCDownStateManager.h"
 @interface WWDCDetailTableViewController ()
 @property(nonatomic,strong)WWDCDetailTableViewDataDelegate *dataDelegate;
 @property(nonatomic,strong)NSString *trackName;
-
+@property(nonatomic,assign)BOOL  isStart;
 @end
 
 @implementation WWDCDetailTableViewController
@@ -30,15 +30,31 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self tableViewDelegateConfig];
+    [self setControllHidden:YES];
     [self registerDownloadURLParserFinishedNotification];
     [self registerCategoryTrackNotification];
     [self registerSearchTextChangedNotifaction];
+    [self registerTableViewScrollNotification];
     [self fetchAllData];
 }
 
 
-
-
+- (void)registerTableViewScrollNotification
+{
+    id clipView = [[self.tableView enclosingScrollView] contentView];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(myBoundsChangeNotificationHandler:)
+                                                 name:NSViewBoundsDidChangeNotification
+                                               object:clipView];
+}
+- (void)myBoundsChangeNotificationHandler:(NSNotification *)aNotification
+{
+    if ([aNotification object] == [[self.tableView enclosingScrollView] contentView])
+    {
+        //[self.dataDelegate closePopover];
+    }
+    
+}
 
 - (void)registerDownloadURLParserFinishedNotification
 {
@@ -89,14 +105,14 @@
 
 - (void)fetchTrackData
 {
-    [self displayActivityView];
+    //[self displayActivityView];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *items = [[WWDCBO sharedInstance] wwdcItemsByTrack:self.trackName];
         [self.dataDelegate setData:items];
         dispatch_async(dispatch_get_main_queue(),^
                        {
                            [self.tableView reloadData];
-                           [self hideActivityView];
+                           //[self hideActivityView];
                        });
         
     });
@@ -106,14 +122,14 @@
 
 - (void)fetchFilterData:(NSString*)text
 {
-    [self displayActivityView];
+    //[self displayActivityView];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSArray *items = [[WWDCBO sharedInstance] wwdcItemsByFilter:text];
         [self.dataDelegate setData:items];
         dispatch_async(dispatch_get_main_queue(),^
                        {
                            [self.tableView reloadData];
-                           [self hideActivityView];
+                          // [self hideActivityView];
                        });
         
     });
@@ -122,28 +138,138 @@
 
 - (void)fetchAllData
 {
-    [self displayActivityView];
+    //[self displayActivityView];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
          NSArray * items = [[WWDCBO sharedInstance] wwdcAllVedioItems];
         if(items.count<=0)
         {
-            [self hideActivityView];
+            //[self hideActivityView];
             return ;
         }
                [self.dataDelegate setData:items];
         dispatch_async(dispatch_get_main_queue(),^
                        {
                            [self.tableView reloadData];
-                           [self hideActivityView];
+                           //[self hideActivityView];
                        });
         
     });
     
 }
 
+- (IBAction)openCloseDownViewAction:(id)sender;
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kOpenCloseDownViewNotification object:nil];
+    NSButton *btn = sender;
+    btn.tag = btn.tag ? 0 : 1;
+    if(btn.tag){
+        btn.image = [NSImage imageNamed:@"downArrow"];
+    }
+    else{
+         btn.image = [NSImage imageNamed:@"upArrow"];
+    }
+    
+    [self setControllHidden:btn.tag?NO:YES];
+}
 
+- (void)setControllHidden:(NSInteger)flag
+{
+    [self.allCheckBox setHidden:flag];
+    [self.sdCheckBox setHidden:flag];
+    [self.hdCheckBox setHidden:flag];
+    [self.pdfCheckBox setHidden:flag];
+    [self.downButton setHidden:flag];
+    [self.addDownloadButton setHidden:flag];
+}
 
+- (IBAction)addDownloadClicked:(id)sender
+{
+    NSArray *selectedDowntems = [self.dataDelegate selectedDowntems];
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:kRequestAddDownloadNotification object:selectedDowntems];
+    
+    [[WWDCDownStateManager sharedInstance]addDownloads:selectedDowntems];
+}
+- (IBAction)downloadClicked:(id)sender
+{
+    NSString *downPath = [AppPreference sharedPreference].downLoadPath;
+    
+    [[NSFileManager defaultManager]createPathIfNeded:downPath];
+    
+    if(1)
+    {
+        [[WWDCDownStateManager sharedInstance]start];
+        
+        self.isStart = YES;
+        
+        
+        //self.downButton.image = [NSImage imageNamed:@"downStop"];
+
+    }
+    else{
+        //[[WWDCDownStateManager sharedInstance]stop];
+        
+        //self.downButton.image = [NSImage imageNamed:@"downStart2"];
+        
+        //self.isStart = NO;
+    }
+        //[[WWDCDownStateManager sharedInstance]addDownloads:selectedDowntems];
+}
+- (IBAction)allCheckBoxClicked:(id)sender
+{
+    NSButton *btn = sender;
+    NSInteger state = btn.state;
+    self.sdCheckBox.state = state;
+    self.hdCheckBox.state = state;
+    self.pdfCheckBox.state = state;
+    [self.dataDelegate allCheckState:state];
+    [self.tableView reloadData];
+}
+- (IBAction)hdCheckBoxClicked:(id)sender
+{
+    NSButton *btn = sender;
+    NSInteger state = btn.state;
+    [self updateAllCheckBoxState];
+    [self.dataDelegate hdCheckState:state];
+    [self.tableView reloadData];
+    
+}
+- (IBAction)sdCheckBoxClicked:(id)sender
+{
+    
+    NSButton *btn = sender;
+    NSInteger state = btn.state;
+    [self updateAllCheckBoxState];
+    [self.dataDelegate sdCheckState:state];
+    [self.tableView reloadData];
+}
+- (IBAction)pdfCheckBoxClicked:(id)sender
+{
+    
+    NSButton *btn = sender;
+    NSInteger state = btn.state;
+    [self updateAllCheckBoxState];
+    [self.dataDelegate pdfCheckState:state];
+    [self.tableView reloadData];
+}
+- (void)updateAllCheckBoxState
+{
+    if([self totalState]>0){
+        self.allCheckBox.state = 1;
+    }
+    else
+    {
+        self.allCheckBox.state = 0 ;
+    }
+}
+- (NSInteger)totalState
+{
+    NSInteger sd_state = self.sdCheckBox.state;
+    NSInteger hd_state = self.hdCheckBox.state;
+    NSInteger pdf_state = self.pdfCheckBox.state;
+    return sd_state+hd_state+pdf_state;
+}
 #pragma delegate config
 - (void)tableViewDelegateConfig{
     self.tableView.delegate   = self.dataDelegate;

@@ -33,8 +33,22 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     [self tableViewDelegateConfig];
+    [self registerRequestAddDownloadNotification];
     [self addDownloadObserver];
     [self fetchData];
+}
+
+
+- (void)registerRequestAddDownloadNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvRequestAddDownloadNotification:) name:kRequestAddDownloadNotification object:nil];
+}
+- (void)recvRequestAddDownloadNotification:(NSNotification*)notification
+{
+    NSArray *items = notification.object;
+    [self.dataDelegate setData:items];
+    [self.tableView reloadData];
+    
 }
 
 - (void)fetchData2

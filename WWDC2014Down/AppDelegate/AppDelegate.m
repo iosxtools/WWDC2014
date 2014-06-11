@@ -11,10 +11,14 @@
 #import "SettingsWindowController.h"
 #import "SharePopoverViewController.h"
 #import "AppStoreViewController.h"
-#import "WWDCMainViewController.h"
 #import "WWDCDownloadWindowController.h"
 #import "WWDCDownloadTableViewController.h"
 #import "WWDCDownloadViewController.h"
+
+#import "WWDCViewController.h"
+
+#import "WWDCDownStateManager.h"
+
 //view controller
 
 #import "WWDCBO.h"
@@ -30,7 +34,7 @@
 {
     
     
-   
+    //[[AppPreference sharedPreference] removeObjectForKey:@"downLoadPath"];
     
     [self parseWWDCWebURLLink];
 }
@@ -39,8 +43,21 @@
 {
     
     [super awakeFromNib];
-    
+    [self registerWindowCloseNotify];
+    [self.searchField resignFirstResponder];
+}
 
+- (void)registerWindowCloseNotify
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(recvWindowWillCloseMsg:) name:NSWindowWillCloseNotification object:nil];
+}
+- (void)recvWindowWillCloseMsg:(NSNotification*)notification
+{
+    NSWindow *window = notification.object;
+    if(window==self.window){
+        [[WWDCDownStateManager sharedInstance]cancellAllDownload];
+        [NSApp terminate:self];
+    }
 }
 
 
@@ -55,7 +72,9 @@
     NSImage *image = [[XXXCommonImageCache sharedInstance]windowTitleImage];
     [[self.window standardWindowButton:NSWindowDocumentIconButton] setImage:image];
     
-     [[self window] setFrame:[[NSScreen mainScreen] visibleFrame] display:YES];
+    [[self window] setFrame:[[NSScreen mainScreen] visibleFrame] display:YES];
+     
+    
 }
 
 
@@ -110,8 +129,14 @@
 - (IBAction)downloadToolBarItemClick:(id)sender
 {
     
-    [self.downloadWindowController showWindow:self];
-    [self.downloadWindowController.window center];
+    NSString *path = [AppPreference sharedPreference].downLoadPath;
+    
+    [[NSFileManager defaultManager]createPathIfNeded:path];
+    
+    NSURL *url =[NSURL URLWithString: path];//[NSURL URLWithString:[Preference sharedPreference].downURL];
+    
+     [[NSWorkspace sharedWorkspace] activateFileViewerSelectingURLs:@[ url ]];
+    
 }
 
 #pragma menu action
@@ -128,7 +153,7 @@
 
 - (void)viewControllerRouteConfig
 {
-    [[RouteManager sharedInstance]map:kMainVCID toViewController:[WWDCMainViewController class]];
+    [[RouteManager sharedInstance]map:kMainVCID toViewController:[WWDCViewController class]];
     [[RouteManager sharedInstance]map:kDownloadTableViewVC toViewController:[WWDCDownloadTableViewController class]];
     
     [[RouteManager sharedInstance]map:kDownloadViewVC toViewController:[WWDCDownloadViewController class]];
@@ -138,6 +163,11 @@
 }
 
 - (NSWindow*)mainWindow
+{
+    return self.window;
+}
+
+- (NSWindow*)appWindow
 {
     return self.window;
 }

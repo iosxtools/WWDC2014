@@ -10,7 +10,15 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		ZseQWuV/dFN7CwfT6dqRICnkW7w=
+		j0XPSBhZ9n5XMWgaDko7uN2vP6g=
+		</data>
+		<key>Resources/X3CommonViewController.nib</key>
+		<data>
+		+haxuAlDnfsHhXrBkvWcDPH8yRw=
+		</data>
+		<key>Resources/XXXCommonViewController.nib</key>
+		<data>
+		xu8l/CxOQb2I53Y7tUVj68tJR7w=
 		</data>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -402,7 +410,15 @@
 		</data>
 		<key>Resources/Info.plist</key>
 		<data>
-		ZseQWuV/dFN7CwfT6dqRICnkW7w=
+		j0XPSBhZ9n5XMWgaDko7uN2vP6g=
+		</data>
+		<key>Resources/X3CommonViewController.nib</key>
+		<data>
+		+haxuAlDnfsHhXrBkvWcDPH8yRw=
+		</data>
+		<key>Resources/XXXCommonViewController.nib</key>
+		<data>
+		xu8l/CxOQb2I53Y7tUVj68tJR7w=
 		</data>
 		<key>Resources/en.lproj/InfoPlist.strings</key>
 		<dict>
@@ -415,7 +431,7 @@
 		</dict>
 		<key>embedded.provisionprofile</key>
 		<data>
-		PvUtmJMcCs9sRxFo08QT4ix3d+c=
+		K8yYPuDvJPe7JM85KigYiAMDg0k=
 		</data>
 	</dict>
 	<key>rules</key>

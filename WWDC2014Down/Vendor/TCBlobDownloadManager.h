@@ -129,4 +129,6 @@
 */
 - (void)cancelAllDownloadsAndRemoveFiles:(BOOL)remove;
 
+- (void)pause;
+- (void)start;
 @end

@@ -15,8 +15,9 @@
 #import "TrackDAO.h"
 #import "WWDCDownload.h"
 #import "WWDCDownloadDAO.h"
+#import "WWDC+Download_Selection.h"
 
-
+#define  LocalTest
 
 @interface WWDCBO ()
 @property(nonatomic,strong)NSValueTransformer *categoryTransformer;
@@ -37,16 +38,25 @@
         [self clearAll];
         
         
-        NSURL * url = [NSURL URLWithString:@"https://developer.apple.com/videos/wwdc/2014/"];
+       
         //NSString * string = [[NSString alloc]initWithContentsOfURL:url];
+        
+#ifdef LocalTest
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
+        
+        NSString *webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
+#else
+        
+        NSURL * url = [NSURL URLWithString:@"https://developer.apple.com/videos/wwdc/2014/"];
         
         NSString *webContent = [[NSString alloc] initWithContentsOfURL:url usedEncoding:NULL error:NULL];
         
         
-        
-       NSString *path = [[NSBundle mainBundle] pathForResource:@"wwdc2014" ofType:@"html"];
-        
-        webContent = [NSString  stringWithContentsOfFile:path usedEncoding:NULL error:NULL];
+        if(!webContent){
+            NSLog(@"wwdc link error!");
+            return ;
+        }
+#endif
         
         OCGumboDocument *document = [[OCGumboDocument alloc] initWithHTMLString:webContent];
         // OCGumboElement *root = document.rootElement;
@@ -68,6 +78,12 @@
             {
                 continue;
             }
+            
+            
+            OCGumboElement *divDescParentNode = elm.Query(@"div.description")[0];
+            OCGumboText *descNode = divDescParentNode.Query(@"p").first().childNodes[0];
+            
+            NSString *desc = [descNode data].trim;
             
             //OCGumboText *titleNode = elm.Query(@"ul").children(@"li").first().childNodes[0];
             OCGumboText *titleNode  = [videoNodes[0] childNodes][0];
@@ -119,9 +135,16 @@
             wwdc.sdLink = sdLink;
             wwdc.pdfLink = pdfLink;
             wwdc.wwdcYear =@"2014";
-            wwdc.desc = @"";
             
-            [wwdc save];
+            if(desc.length>0)
+            {
+                wwdc.details = desc;
+            }
+            
+            
+            BOOL ret = [wwdc save];
+            
+            DLog(@"wwdc save %d",ret);
             
             Track *track = [[Track alloc]init];
             track.name = category;
@@ -129,7 +152,6 @@
             [track save];
             
            
-            
             
             //download link save
             WWDCDownload *download = [[WWDCDownload alloc]init];
@@ -199,8 +221,10 @@
     {
         return nil;
     }
-    WWDCDAO *dao = [[WWDCDAO alloc]init];
-    return [dao findByAttributes:@{@"category":trackName}];
+
+    NSArray *items = [self.wwdcDAO findByAttributes:@{@"category":trackName}];
+    [self updateLinkSelection:items];
+    return items;
 }
 
 - (NSArray*)wwdcItemsByFilter:(NSString*)filter;
@@ -209,21 +233,31 @@
     {
         return nil;
     }
-    WWDCDAO *dao = [[WWDCDAO alloc]init];
-    NSArray *originalitems = [dao findAll];
+    NSArray *originalitems = [self.wwdcDAO  findAll];
     NSMutableArray *items = [NSMutableArray arrayWithArray:originalitems];
     NSString *search = [NSString stringWithFormat:@"SELF.title contains[c] '%@'",filter];
     NSPredicate *sPredicate = [NSPredicate predicateWithFormat:search];
     [items filterUsingPredicate:sPredicate];
-    
+    [self updateLinkSelection:items];
     return items;
 }
 
 - (NSArray*)wwdcAllVedioItems
 {
-    //NSArray *all = [self all];
-    WWDCDAO *dao = [[WWDCDAO alloc]init];
-    return [dao findAll];
+    NSArray *items = [self.wwdcDAO  findAll];
+    [self updateLinkSelection:items];
+    return items;
+}
+
+- (void)updateLinkSelection:(NSArray*)items
+{
+    for(WWDC *wwdc in items)
+    {
+        wwdc.isSelectedHD = YES;
+        wwdc.isSelectedSD = YES;
+        wwdc.isSelectedPDF = YES;
+    }
+
 }
 
 - (NSArray*)wwdcAllDownloadTableItems
@@ -233,13 +267,26 @@
 
 - (NSArray*)wwdcAllDownloadItems
 {
-    WWDCDownloadDAO *dao = [[WWDCDownloadDAO alloc]init];
-    return [dao findAll];
+    return [self.wwdcDownloadDAO findAll];
 }
 
 - (WWDC*)wwdcWithID:(NSInteger)ID
 {
     return [self.wwdcDAO findByKey:@{@"ID":@(ID)}];
+}
+
+- (WWDCDownload*)wwdcDownloadWithWWDCID:(NSInteger)ID type:(WWDCVedioType)type
+{
+    NSArray *items = [self.wwdcDownloadDAO findByAttributes:@{@"wwdcID":@(ID),@"type":@(type)}];
+    if([items count]>0){
+        return items[0];
+    }
+    return nil;
+}
+
+- (NSArray*)wwdcAllDownloadTableItemsFromWWDCS:(NSArray*)wwdcs;
+{
+    return [self.downloadTransformer transformedValue:wwdcs];
 }
 
 - (NSValueTransformer*)categoryTransformer{

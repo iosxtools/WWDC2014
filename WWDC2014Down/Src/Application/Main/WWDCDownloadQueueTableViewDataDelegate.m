@@ -50,27 +50,40 @@ Copyright (c) http://www.iosxtools.com  All rights reserved.
         {
             result =  [tableView makeViewWithIdentifier:kStatusColumn owner:self];
             NSTextField *cell = result.subviews[0];
-            cell.stringValue = @"Waiting...";
+            cell.stringValue = @"waiting...";
         }
         else if(percent>=100)
         {
             result =  [tableView makeViewWithIdentifier:kStatusColumn owner:self];
              NSTextField *cell = result.subviews[0];
-            cell.stringValue = @"Complete";
+            cell.stringValue = @"complete";
+        }
+        
+    }
+    
+    if([identifier isEqualToString:kProgressColumn])
+    {
+        
+        double percent = [item[@"percent"] doubleValue];
+        if(percent>=100)
+        {
+            result =  [tableView makeViewWithIdentifier:@"noprogress" owner:self];
+            NSTextField *cell = result.subviews[0];
+            cell.stringValue = @"";
         }
         else
         {
             result =  [tableView makeViewWithIdentifier:kProgressColumn owner:self];
             
             LBProgressBar *progressBar = result.subviews[0];
-           
-           
+            
+            
             [progressBar setHidden:NO];
-           
+            
             
             [progressBar setDoubleValue: percent];
         }
-    
+        
         
     }
     

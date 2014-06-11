@@ -17,7 +17,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    return [super initWithNibName:nibNameOrNil bundle:nil];
+    return [super initWithNibName:nil bundle:nil];
 }
 - (void)awakeFromNib{
     [super awakeFromNib];

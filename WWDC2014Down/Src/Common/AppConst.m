@@ -18,7 +18,7 @@ NSString* const kAppHomeURL   = @"http://www.iosxtools.com";
 
 
 
-NSString* const kAppDBName    = @"AppWWDC2014.sqlite";
+NSString* const kAppDBName    = @"AppWWDCDown.sqlite";
 
 
 

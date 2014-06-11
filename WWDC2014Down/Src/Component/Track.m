@@ -84,14 +84,14 @@
 - (id)valueForUndefinedKey:(NSString *)key
 {
     // subclass implementation should provide correct key value mappings for custom keys
-    NSLog(@"Undefined Key: %@", key);
+     NSLog(@"obj %@ Undefined Key: %@", self,key );
     return nil;
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {
     // subclass implementation should set the correct key value mappings for custom keys
-    NSLog(@"Undefined Key: %@", key);
+   NSLog(@"obj %@ Undefined Key: %@", self,key );
 }
 
 - (TrackDAO*)dao

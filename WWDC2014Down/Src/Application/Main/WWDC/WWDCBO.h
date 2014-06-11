@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class WWDC;
+@class WWDC,WWDCDownload;
 @interface WWDCBO : XXXBO
 - (void)clearAll;
 - (void)parseWWDCDownloadLink;
@@ -18,4 +18,6 @@
 - (NSArray*)wwdcAllDownloadItems;
 - (NSArray*)wwdcAllDownloadTableItems;
 - (WWDC*)wwdcWithID:(NSInteger)ID;
+- (WWDCDownload*)wwdcDownloadWithWWDCID:(NSInteger)ID type:(WWDCVedioType)type;
+- (NSArray*)wwdcAllDownloadTableItemsFromWWDCS:(NSArray*)wwdcs;
 @end

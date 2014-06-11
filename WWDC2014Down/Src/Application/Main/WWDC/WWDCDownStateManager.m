@@ -12,7 +12,7 @@
 #import "TCBlobDownload.h"
 #import "WWDCTCBlobDownloader.h"
 @interface WWDCDownStateManager()<TCBlobDownloaderDelegate>
-@property(nonatomic,strong)TCBlobDownloadManager *tcBlobDownloadManager;
+@property(nonatomic,strong)TCBlobDownloadManager *downloadManager;
 @property(nonatomic,strong)NSMutableArray *requestDownItems;
 @property(nonatomic,strong)NSMutableDictionary *requestDownItemsMap;
 @property(nonatomic,assign)int refreshPercentCount;
@@ -24,6 +24,8 @@
     static dispatch_once_t oncePredicate;
     dispatch_once(&oncePredicate, ^{
         instace = [[self alloc] init];
+        
+        [[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:5];
         
     });
     return instace;
@@ -49,27 +51,50 @@
     
     self.requestDownItemsMap[@(fileID)]=downloadItem;
     
+    
+    
+}
+
+- (void)start
+{
+    for(NSDictionary *downloadItem in self.requestDownItems){
+        WWDCTCBlobDownloader *downloader = [self tcBlobDownloader:downloadItem];
+        [[TCBlobDownloadManager sharedInstance] startDownload:downloader];
+    }
+    
+    [[TCBlobDownloadManager sharedInstance]start];
+    
+    
+    
+    
+}
+- (void)stop
+{
+    [[TCBlobDownloadManager sharedInstance]pause];
+}
+
+- (WWDCTCBlobDownloader*)tcBlobDownloader:(NSDictionary*)downloadItem
+{
     NSString *urlString = downloadItem[@"url"];
+    
+    NSInteger fileID = [downloadItem[@"fileID"] integerValue];
+    
     
     NSString *encodedText = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url = [NSURL URLWithString:encodedText];
-   
+    
     
     NSString *targetPath = [AppPreference sharedPreference].downLoadPath;
     
     
     WWDCTCBlobDownloader *download = [[WWDCTCBlobDownloader alloc] initWithURL:url  downloadPath:targetPath
-                                                              delegate:self];
+                                                                      delegate:self];
     download.fileID = fileID;
     
-    [[TCBlobDownloadManager sharedInstance] setMaxConcurrentDownloads:5];
-    
-    [[TCBlobDownloadManager sharedInstance] startDownload:download];
-    
-    
-}
+    return download;
 
+}
 #pragma TCBlobDownloadManager delegate
 
 - (void)download:(TCBlobDownloader *)blobDownload didFinishWithSuccess:(BOOL)downloadFinished atPath:(NSString *)pathToFile
@@ -133,7 +158,10 @@
     NSLog(@"download stop file id=%ld error=%@",fileID,error);
 }
 
-
+- (void)cancellAllDownload
+{
+    [self.downloadManager cancelAllDownloadsAndRemoveFiles:NO];
+}
 - (void)addDownloads:(NSArray*)downloadItems
 {
    
@@ -158,13 +186,13 @@
     return _state;
 }
 
-- (TCBlobDownloadManager*)tcBlobDownloadManager
+- (TCBlobDownloadManager*)downloadManager
 {
-    if(!_tcBlobDownloadManager)
+    if(!_downloadManager)
     {
-        _tcBlobDownloadManager = [TCBlobDownloadManager sharedInstance];
+        _downloadManager = [TCBlobDownloadManager sharedInstance];
     }
-    return _tcBlobDownloadManager;
+    return _downloadManager;
 }
 - (NSMutableArray*)requestDownItems
 {

@@ -57,11 +57,11 @@ static WWDCVedioType vedioType(NSString *type)
         NSButton *checkButton = result.subviews[0];
         if(isSelected)
         {
-            checkButton.image = [NSImage imageNamed:@"checkmark_on"];
+            checkButton.state = 1;
         }
         else
         {
-            checkButton.image = [NSImage imageNamed:@"checkmark_off"];
+            checkButton.state = 0;
         }
         
         [checkButton setTarget: self];
@@ -111,11 +111,11 @@ static WWDCVedioType vedioType(NSString *type)
     
     BOOL isCheck = [[item valueForKey:@"isSelected"] boolValue];
     if(!isCheck){
-        button.image = [NSImage imageNamed:@"checkmark_on"];
+        button.state = 1;
         item[@"isSelected"] = @(1);
     }
     else{
-        button.image = [NSImage imageNamed:@"checkmark_off"];
+        button.state = 0;
         item[@"isSelected"] = @(0);
     }
     

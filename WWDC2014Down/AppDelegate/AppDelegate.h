@@ -12,7 +12,10 @@
 @interface AppDelegate : WWDCCommonAppDelegate
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSToolbar *toolBar;
+- (IBAction)aboutToolBarItemClick:(id)sender;
+@property (weak) IBOutlet NSSearchField *searchField;
 - (IBAction)prefrenceMenuAction:(id)sender;
 - (IBAction)acknowledgmentMenuAction:(id)sender;
 - (IBAction)searchToolBarItemClick:(id)sender;
+- (NSWindow*)appWindow;
 @end

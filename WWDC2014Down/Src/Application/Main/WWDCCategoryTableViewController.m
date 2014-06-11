@@ -16,6 +16,7 @@
 @interface WWDCCategoryTableViewController ()<ExtendedTableViewDelegate>
 @property(nonatomic,strong)WWDCCategoryTableViewDataDelegate *dataDelegate;
 @property(nonatomic,strong)TrackDAO *dao;
+@property(nonatomic,assign)NSInteger currentRow;
 @end
 
 @implementation WWDCCategoryTableViewController
@@ -31,6 +32,7 @@
 
 - (void)awakeFromNib{
     [super awakeFromNib];
+    self.currentRow = -1;
     [self tableViewDelegateConfig];
     [self registerDownloadURLParseFinishedNotifaction];
     [self fetchData];
@@ -58,6 +60,17 @@
 
 - (void)tableView:(NSTableView *)tableView didClickedRow:(NSInteger)row {
     
+    if(self.currentRow==row)
+    {
+        return;
+    }
+    self.currentRow = row;
+    if(row==-1){
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:kCategoryTrackNotification object:nil];
+        
+        return;
+    }
     NSDictionary *item = [self.dataDelegate itemOfRow:row];
     NSString *category = item[@"name"];
     [[NSNotificationCenter defaultCenter] postNotificationName:kCategoryTrackNotification object:category];

@@ -1,7 +1,7 @@
 /*
  WWDC.h
  project
- Created by author on 28/05/2014 10:57PM.
+ Created by author on 09/06/2014 05:18AM.
  Copyright (c) 2014 author. All rights reserved.
  */
 @interface WWDC : XXXDataModel
@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *hdLink;
 @property (nonatomic, strong) NSString *sdLink;
 @property (nonatomic, strong) NSString *pdfLink;
-@property (nonatomic, strong) NSString *desc;
+@property (nonatomic, strong) NSString *details;
 @property (nonatomic, assign) NSInteger sortOrder;
 /*init property member var by parsing NSDictionary parameter*/
 - (id)initWithDictionary:(NSDictionary *)dictionary;

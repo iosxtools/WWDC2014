@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>XXXOSXCommon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.iosxtools.coredata</string>
+	<string>com.iosxtools.wwdc</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

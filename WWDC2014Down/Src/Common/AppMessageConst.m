@@ -16,3 +16,6 @@ NSString* const kCategoryTrackNotification  =@"CategoryTrackNotification";
 NSString* const kSearchTextChangedNotification =@"SearchTextChangedNotification";
 
 
+NSString* const kOpenCloseDownViewNotification = @"OpenCloseDownViewNotification";
+
+NSString* const kRequestAddDownloadNotification = @"RequestAddDownloadNotification";

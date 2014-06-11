@@ -13,5 +13,10 @@ extern NSString* const kCategoryTrackNotification;
 
 extern NSString* const kSearchTextChangedNotification;
 
+extern NSString* const kOpenCloseDownViewNotification;
+
+extern NSString* const kRequestAddDownloadNotification;
+
+
 
 

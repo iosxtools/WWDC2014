@@ -92,7 +92,14 @@
         [blob cancelDownloadAndRemoveFile:remove];
     }
 }
-
+- (void)pause
+{
+    [self.operationQueue setSuspended:YES];
+}
+- (void)start
+{
+    [self.operationQueue setSuspended:NO];
+}
 
 #pragma mark - Custom Setters
 
