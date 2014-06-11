@@ -86,11 +86,17 @@ WWDCStateManager.m
 
 ## Screenshots
 
-![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC2014_Main_sh_small.png)
+Browse
 
-![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC2014_Download_Selection_sh_small.png)
+![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC-Main-SH.png)
 
-![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC2014_App_sh_small.png)
+Download Selection
+
+![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC-Download-SH.png)
+
+Download Path Setting
+
+![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC-Prefrence-SH.png)
 
 ##Development experience
 We use [SQLite+](https://itunes.apple.com/cn/app/sqlite+/id831063466?mt=12) Design database,Generate FMDB-Based Model & DAO class;
