@@ -25,7 +25,8 @@
 		715C3D191937CB87007D1093 /* toolbar-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 715C3D181937CB87007D1093 /* toolbar-down.png */; };
 		715C3D341937D997007D1093 /* checkmark_off.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 715C3D321937D997007D1093 /* checkmark_off.tiff */; };
 		715C3D351937D997007D1093 /* checkmark_on.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 715C3D331937D997007D1093 /* checkmark_on.tiff */; };
-		715D7A98193BDFC800B699B7 /* AppWWDC2014.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 715D7A97193BDFC800B699B7 /* AppWWDC2014.sqlite */; };
+		715D7A98193BDFC800B699B7 /* AppWWDC20143.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 715D7A97193BDFC800B699B7 /* AppWWDC20143.sqlite */; };
+		716E483B194A2549003CC490 /* AppWWDCDown.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 716E483A194A2549003CC490 /* AppWWDCDown.sqlite */; };
 		7184F3CA193E81230055E3FC /* wwdc2014.html in Resources */ = {isa = PBXBuildFile; fileRef = 7184F3C9193E81230055E3FC /* wwdc2014.html */; };
 		71A37AF919352941008AA1D6 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A37AF819352941008AA1D6 /* Cocoa.framework */; };
 		71A37B0319352941008AA1D6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 71A37B0119352941008AA1D6 /* InfoPlist.strings */; };
@@ -226,7 +227,8 @@
 		715C3D181937CB87007D1093 /* toolbar-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "toolbar-down.png"; sourceTree = "<group>"; };
 		715C3D321937D997007D1093 /* checkmark_off.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = checkmark_off.tiff; sourceTree = "<group>"; };
 		715C3D331937D997007D1093 /* checkmark_on.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = checkmark_on.tiff; sourceTree = "<group>"; };
-		715D7A97193BDFC800B699B7 /* AppWWDC2014.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppWWDC2014.sqlite; sourceTree = "<group>"; };
+		715D7A97193BDFC800B699B7 /* AppWWDC20143.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppWWDC20143.sqlite; sourceTree = "<group>"; };
+		716E483A194A2549003CC490 /* AppWWDCDown.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AppWWDCDown.sqlite; sourceTree = "<group>"; };
 		7184F3C9193E81230055E3FC /* wwdc2014.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wwdc2014.html; sourceTree = "<group>"; };
 		71A37AF519352941008AA1D6 /* WWDC2014.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC2014.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71A37AF819352941008AA1D6 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -650,7 +652,8 @@
 		71A37B3A19352A41008AA1D6 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
-				715D7A97193BDFC800B699B7 /* AppWWDC2014.sqlite */,
+				716E483A194A2549003CC490 /* AppWWDCDown.sqlite */,
+				715D7A97193BDFC800B699B7 /* AppWWDC20143.sqlite */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -1163,7 +1166,8 @@
 				71A37C1219352A42008AA1D6 /* facebook@2x.png in Resources */,
 				71A37B0919352941008AA1D6 /* Credits.rtf in Resources */,
 				71C6508F1947E3850053CD36 /* WWDCTitlePopViewController.xib in Resources */,
-				715D7A98193BDFC800B699B7 /* AppWWDC2014.sqlite in Resources */,
+				715D7A98193BDFC800B699B7 /* AppWWDC20143.sqlite in Resources */,
+				716E483B194A2549003CC490 /* AppWWDCDown.sqlite in Resources */,
 				71A37C1719352A42008AA1D6 /* SinaWeiboLOGO_32x32.png in Resources */,
 				71A37C0E19352A42008AA1D6 /* attachImage@2x.jpg in Resources */,
 				712B10BD19390F6800D9D4FE /* AppStoreViewController.xib in Resources */,
