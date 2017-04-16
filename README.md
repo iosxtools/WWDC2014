@@ -15,7 +15,7 @@ A Cocoa OSX App to help you download WWDC2014 videos
 
 We are [iOSTools](http:/www.iosxtools.com),a studio  determined to develop the best iOS/OSX tools for developers!
 
-##Usage
+## Usage
 in WWDCBO.m file,use local html path to test,in practice you must modify url as a real remote  wwdc 2014 videos http url.
 
 ```
@@ -98,7 +98,7 @@ Download Path Setting
 
 ![Screenshot as of April 8th](http://www.iosxtools.com/WWDC2014/resource/WWDC-Prefrence-SH.png)
 
-##Development experience
+## Development experience
 We use [SQLite+](https://itunes.apple.com/cn/app/sqlite+/id831063466?mt=12) Design database,Generate FMDB-Based Model & DAO class;
 [iOSXKit](http://www.iosxkit.com/) A Fast Mac App Development Tool, can quickly generate OSX UI Wapper class.
 Only take 4 days complete basic WWDC2014 Demo App.
